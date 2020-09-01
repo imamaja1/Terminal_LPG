@@ -80,7 +80,7 @@
                                             <th>Tanggal SPA</th>
                                             <th>Stock</th>
                                             <th>NOPOL</th>
-                                            <th>Status Skid Tank</th>
+                                            <th>Status Patra Niaga</th>
                                             <th>Ket</th>
                                             <th>Action</th>
                                         </tr>
@@ -321,7 +321,7 @@
                                 if (row['status_permintaan'] == 1) {
                                     return '<span class="label label-default">Skid Tank diperjalanan </span>'
                                 } else {
-                                    return '<span class="label label-info">Permintaan Berhasil</span>'
+                                    return '<span class="label label-info">Skid Tank Telah Sampai</span>'
                                 }
                             } else if (row['status_patra_niaga'] == 1) {
                                 return '<span class="label label-default">Waiting ..</span>';
