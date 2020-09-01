@@ -126,7 +126,7 @@
                                             <th>Kapasitas (MT)</th>
                                             <th>Odometer</th>
                                             <th>Status</th>
-                                            <th>Action</th>
+                                            <th style="width: 30px;">Action</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -533,7 +533,7 @@
                             data: "kode_skid_tank",
                             className: "center",
                             render: function(data, type, row, meta) {
-                                return '<div class="btn-group"><button class="btn btn-success" data-toggle="modal" data-target="#viewdata" onclick="view_data(' + data + ')"><span class="fa fa-eye"></span></button><button class="btn btn-info" data-toggle="modal" data-target="#updatedata" onclick="view_data(' + data + ')"><span class="fa fa-cog"></span></button><button class="btn btn-danger" data-toggle="modal" data-target="#deletedata" onclick="delete_data(' + data + ')"><span class="fa fa-trash-o"></span></button></div>';
+                                return '<div class="form-group"><div class="col-md-12"><button class="btn btn-success btn-block" data-toggle="modal" data-target="#viewdata" onclick="view_data(' + data + ')"><span class="fa fa-eye"></span></button></div><div class="col-md-12"><button class="btn btn-info btn-block" data-toggle="modal" data-target="#updatedata" onclick="view_data(' + data + ')"><span class="fa fa-cog"></span></button></div><div class="col-md-12"><button class="btn btn-danger btn-block" data-toggle="modal" data-target="#deletedata" onclick="delete_data(' + data + ')"><span class="fa fa-trash-o"></span></button></div></div>'
                             }
                         },
                     ],

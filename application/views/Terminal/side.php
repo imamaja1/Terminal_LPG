@@ -11,7 +11,11 @@
             <div class="profile-image">
                 <img src="<?= base_url() ?>assets/assets/images/users/no-image.jpg" alt="John Doe" />
             </div>
+            <div class="profile-data">
+                <a href="pages-profile.html" class="profile-control-left"><span class="fa fa-info"></span></a>
+            </div>
         </div>
+
     </li>
     <li class="xn-title">Dashboard</li>
     <li <?php if ($side == 'dashboard') {

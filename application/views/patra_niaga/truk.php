@@ -163,7 +163,7 @@
                         <!-- START DEFAULT DATATABLE -->
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#inputdata">Input Data</button>
+                                <button type="submit" class="btn btn-info" data-toggle="modal" data-target="#inputdata">Input Data</button>
                                 <ul class="panel-controls">
                                     <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
                                     <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
@@ -180,7 +180,7 @@
                                             <th>Odometer</th>
                                             <th>Status</th>
                                             <th>Ket</th>
-                                            <th>Action</th>
+                                            <th style="width: 20px;">Action</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -632,7 +632,7 @@
                         data: "kode_skid_tank",
                         className: "center",
                         render: function(data, type, row, meta) {
-                            return '<div class="btn-group"><button class="btn btn-success" data-toggle="modal" data-target="#viewdata" onclick="view_data(' + data + ')">View</button><button class="btn btn-info" data-toggle="modal" data-target="#updatedata" onclick="view_data(' + data + ')">Update</button><button class="btn btn-danger" data-toggle="modal" data-target="#deletedata" onclick="delete_data(' + data + ')">Delete</button></div>';
+                            return '<div class="form-group"><div class="col-md-12"><button class="btn btn-success btn-block" data-toggle="modal" data-target="#viewdata" onclick="view_data(' + data + ')"><span class="fa fa-eye"></span></button></div><div class="col-md-12"><button class="btn btn-info btn-block" data-toggle="modal" data-target="#updatedata" onclick="view_data(' + data + ')"><span class="fa fa-cog"></span></button></div><div class="col-md-12"><button class="btn btn-danger btn-block" data-toggle="modal" data-target="#deletedata" onclick="delete_data(' + data + ')"><span class="fa fa-trash-o"></span></button></div></div>'
                         }
                     }, ],
                     "fnCreatedRow": function(row, data, index) {
