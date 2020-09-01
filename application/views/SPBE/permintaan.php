@@ -302,18 +302,6 @@
                     }, {
                         data: "nopol"
                     }, {
-                        data: "status_terminal",
-                        className: "center",
-                        render: function(data, type, row, meta) {
-                            if (data == '1') {
-                                return '<span class="label label-default">Waiting ..</span>';
-                            } else if (data == '2') {
-                                return '<span class="label label-info">Diverifikasi</span>'
-                            } else if (data == '3') {
-                                return '<span class="label label-danger">DitokaK</span>'
-                            }
-                        }
-                    }, {
                         data: "status_patra_niaga",
                         className: "center",
                         render: function(data, type, row, meta) {
@@ -322,7 +310,23 @@
                             } else if (data == '2') {
                                 return '<span class="label label-info">Diverifikasi</span>'
                             } else if (data == '3') {
-                                return '<span class="label label-danger">DitokaK</span>'
+                                return '<span class="label label-danger">Ditolak</span>'
+                            }
+                        }
+                    }, {
+                        data: null,
+                        className: "center",
+                        render: function(data, type, row, meta) {
+                            if (row['status_patra_niaga'] == 2) {
+                                if (row['status_permintaan'] == 1) {
+                                    return '<span class="label label-default">Skid Tank diperjalanan </span>'
+                                } else {
+                                    return '<span class="label label-info">Permintaan Berhasil</span>'
+                                }
+                            } else if (row['status_patra_niaga'] == 1) {
+                                return '<span class="label label-default">Waiting ..</span>';
+                            } else {
+                                return '<span class="label label-danger">Permintaan Ditolak</span>'
                             }
                         }
                     }, {
