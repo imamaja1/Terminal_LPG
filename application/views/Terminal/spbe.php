@@ -77,9 +77,9 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Nama SPBE</th>
-                                            <th>Pemilik SPBE</th>
-                                            <th>Telepone SPBE</th>
-                                            <th>Alamat SPBE</th>
+                                            <th>Telepone</th>
+                                            <th>DOT</th>
+                                            <th>Kapasitas TT</th>
                                             <th>Action </th>
                                         </tr>
                                     </thead>
