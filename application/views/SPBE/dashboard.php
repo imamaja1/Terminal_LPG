@@ -310,7 +310,7 @@
         })
 
 
-        function data_permintaan(id) {
+        function data_permintaan() {
             $.ajax({
                 type: 'GET',
                 headers: {
@@ -325,13 +325,15 @@
                     if (response.status) {
                         $.each(response.data, function(i) {
                             if (response.data[i].status_permintaan != '2') {
-
                                 document.getElementById('Ferivikasi').innerHTML += '<div class="panel-body list-group list-group-contacts"><a href="#" class="list-group-item"><span class="contacts-title">Skid Tank Dengan Nomer Polisi ' + response.data[i].nopol + '</span><table><tr><td style="padding: 2px;"> No SPA </td><td style="padding: 2px;"> : </td><td style="padding: 2px;"> ' + response.data[i].no_spa + ' </td></tr><tr><td style="padding: 2px;">Tanggal SPA </td><td style="padding: 2px;"> : </td><td style="padding: 2px;">' + response.data[i].tgl_spa + '</td></tr><tr><td style="padding: 2px;">Kapasitas TT </td><td style="padding: 2px;"> : </td><td style="padding: 2px;">' + response.data[i].kapasitas + '</td></tr></table><div class="list-group-controls"><button class="btn btn-primary btn-rounded" data-toggle="modal" data-target="#verifikasi" onclick="kode(' + response.data[i].kode_permintaan + ')">Konfirmasi</button></div></a></div>';
                             }
                         });
                     }
                 }
             });
+        }
+
+        function data_permintaan2() {
             var time;
             $.ajax({
                 type: 'GET',
@@ -343,7 +345,7 @@
                 contentType: "application/json",
                 dataType: 'json',
                 success: function(response) {
-                    console.log(response);
+                    // console.log(response);
                     document.getElementById('progres').innerHTML = null;
                     if (response.status) {
                         var x = new Date(new Date().toLocaleString('en-US', {
@@ -354,7 +356,7 @@
                             if (response.data[i].status_permintaan != '2') {
                                 if (response.data[i].status_patra_niaga == '2') {
                                     if (moment(response.data[i].tgl_berangkat_tujuan) < times) {
-                                        if (moment(response.data[i].tgl_sampai_tujuan) < times && moment(response.data[i].tgl_berangkat_tujuan) < moment(response.data[i].tgl_sampai_tujuan)) {
+                                        if (moment(response.data[i].tgl_berangkat_tujuan) < moment(response.data[i].tgl_sampai_tujuan)) {
                                             document.getElementById('progres').innerHTML += '<div class="progress-list"><button class="btn btn-primary btn-rounded pull-right" data-toggle="modal" data-target="#timeline" onclick="kode3(' + response.data[i].kode_permintaan + ',4)">Time Line</button><div class="pull-left"><strong>' + response.data[i].nama_spbe + '</strong></div><br><div class="pull"><span class="text-info">Skdi Tank di Tujuan</span></div><div class="pull-right">100%</div><div class="progress progress-small progress-striped active"><div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">100%</div></div></div>'
                                         } else {
                                             document.getElementById('progres').innerHTML += '<div class="progress-list"><button class="btn btn-primary btn-rounded pull-right" data-toggle="modal" data-target="#timeline" onclick="kode3(' + response.data[i].kode_permintaan + ',4)">Time Line</button><div class="pull-left"><strong>' + response.data[i].nama_spbe + '</strong></div><br><div class="pull"><span class="text-info">Proses Perjalan Menuju Tujuan</span></div><div class="pull-right">70%</div><div class="progress progress-small progress-striped active"><div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 70%;">70%</div></div></div>'
@@ -371,10 +373,10 @@
                 }
             })
         }
+        data_permintaan2();
 
         function kode(data) {
             kode_permintaan = data;
-            console.log(kode_permintaan);
         }
 
         function verifikasi() {
@@ -382,7 +384,6 @@
                 'kode_permintaan': kode_permintaan,
                 'KEY-SPBE': 'SPBE'
             }
-            console.log(value_data);
             $.ajax({
                 type: 'put',
                 url: " <?= base_url() ?>Rest_API/permintaan_spbe",
@@ -393,10 +394,10 @@
                 dataType: 'json',
                 data: value_data,
                 success: function(response) {
-                    console.log(value_data)
+                    data_permintaan();
+                    data_permintaan2();
                 }
             });
-            data_permintaan(id);
         }
     </script>
 </body>
