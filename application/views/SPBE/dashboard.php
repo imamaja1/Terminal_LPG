@@ -101,13 +101,10 @@
                         <div class="col-md-12">
                             <div class="timeline2">
                                 <div class="line text-muted"></div>
-                                <!-- <div class="separator text-muted">
-                                    <time>Time Line</time>
-                                </div> -->
                                 <article class="panel panel-info panel-outline"></article>
                                 <div id="datatimeline"></div>
-                                <div class="separator text-muted"></div>
-                                <article class="panel panel-info panel-outline"></article>
+                                <div class="separator text-muted"><time>.</time></div>
+                                <div class="separator text-muted"><time></time></div>
                             </div>
                         </div>
                     </div>
@@ -175,7 +172,7 @@
                             }
                         }
                     }
-                } 
+                }
 
             })
 
