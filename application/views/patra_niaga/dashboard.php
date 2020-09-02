@@ -283,14 +283,10 @@
                         <div class="col-md-12">
                             <div class="timeline2">
                                 <div class="line text-muted"></div>
-                                <!-- <div class="separator text-muted">
-                                    <time>Time Line</time>
-                                </div> -->
                                 <article class="panel panel-info panel-outline"></article>
                                 <div id="datatimeline"></div>
-                                <!-- /Separator -->
-                                <div class="separator text-muted"></div>
-                                <article class="panel panel-info panel-outline"></article>
+                                <div class="separator text-muted"><time>.</time></div>
+                                <div class="separator text-muted"><time></time></div>
                             </div>
                         </div>
                     </div>
@@ -348,15 +344,15 @@
                 success: function(response) {
                     // document.getElementById('namatimeline').innerHTML = response.data[0].nama_spbe;
                     if (jum > 1) {
-                        document.getElementById('datatimeline').innerHTML += ' <div class="separator text-muted"><time>' + response.data[0].tgl + '</time></div><article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body"><strong>Pemintaan Skid Tank</strong> dari <strong>SPBE</strong>.</div></article>';
+                        document.getElementById('datatimeline').innerHTML += ' <article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body">' + response.data[0].tgl + '<br><strong>Pemintaan Skid Tank</strong> dari <strong>SPBE</strong>.</div></article>';
                         if (jum > 2) {
-                            document.getElementById('datatimeline').innerHTML += ' <div class="separator text-muted"><time>' + response.data[0].tgl_berangkat_tujuan + '</time></div><article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body"><strong>Verifikasi Perminaan Skid Tank</strong> oleh <strong>Patra Niaga</strong>.</div></article>';
+                            document.getElementById('datatimeline').innerHTML += ' <article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body">' + response.data[0].tgl_berangkat_tujuan + '<br><strong>Verifikasi Perminaan Skid Tank</strong> <br>oleh <strong>Patra Niaga</strong>.</div></article>';
                             if (jum > 3) {
-                                document.getElementById('datatimeline').innerHTML += ' <div class="separator text-muted"><time>' + response.data[0].tgl_berangkat_tujuan + '</time></div><article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body"> Proses <strong>Skid Tank Berangkat</strong>.</div></article>';
+                                document.getElementById('datatimeline').innerHTML += '<article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body">' + response.data[0].tgl_berangkat_tujuan + '<br> Proses <strong>Skid Tank Berangkat</strong>.</div></article>';
                                 if (jum > 4) {
-                                    document.getElementById('datatimeline').innerHTML += ' <div class="separator text-muted"><time>' + response.data[0].tgl_sampai_tujuan + '</time></div><article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body">  <strong>Skid Tank telah sampai</strong> di tujuan.</div></article>';
+                                    document.getElementById('datatimeline').innerHTML += '<article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body">' + response.data[0].tgl_sampai_tujuan + '<br> Proses <strong>Skid Tank Berangkat</strong>.</div></article>'
                                     if (jum > 5) {
-                                        document.getElementById('datatimeline').innerHTML += ' <div class="separator text-muted"><time>' + response.data[0].tgl_kembali + '</time></div><article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body">  <strong>Skid Tank Kembali</strong> Ke Pangkalan.</div></article>';
+                                        document.getElementById('datatimeline').innerHTML += '<article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body">' + response.data[0].tgl_kembali + '<br> Proses <strong>Skid Tank Berangkat</strong>.</div></article>'
                                     }
                                 }
                             }
