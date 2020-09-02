@@ -14,7 +14,7 @@
         </div>
     </div>
     <li class="xn-title">Dashboard</li>
-    <li <?php if ($side == 'dashboard') {
+    <li <?php if ($side == 'Dashboard') {
             echo ' class="active" ';
         } ?>>
         <a href=" <?= base_url() ?>Terminal"><span class="fa fa-dashboard"></span> <span class="xn-text">Dashboard</span></a>

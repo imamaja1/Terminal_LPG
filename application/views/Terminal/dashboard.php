@@ -42,7 +42,7 @@
                         <div class="panel-heading">
                             <div class="panel-title-box">
                                 <h3>Skid Tank</h3>
-                                <span>Progras skid tank</span>
+                                <span>Progres Skid Tank</span>
                             </div>
                         </div>
                         <div class="panel-body">
@@ -95,7 +95,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="panel-title-box">
-                            <h3>Aktifitas Truk</h3>
+                            <h3>Aktivitas Truk</h3>
                         </div>
                         <ul class="panel-controls" style="margin-top: 2px;">
                             <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>

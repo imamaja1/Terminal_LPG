@@ -40,7 +40,7 @@
                     <div class="col-md-12">
 
                         <div class="alert alert-success tambah" style="display: none" role="tambah">
-                            Penambaha Data Telah Berhasil
+                            Penambahan Data Telah Berhasil
                         </div>
                         <div class="alert alert-info put" style="display: none" role="put">
                             Pengupdatan Data Telah Berhasil
@@ -153,7 +153,7 @@
 
                             <div class="form-group col-md-6">
                                 <label for="exampleInputEmail1">Nama SPBE</label>
-                                <input type="" class="form-control" id="post_nama_spbe" aria-describedby="emailHelp">
+                                <input type="" class="form-control" id="post_name_spbe" aria-describedby="emailHelp">
                             </div>
 
                             <div class="form-group col-md-6">
@@ -340,7 +340,7 @@
                 function post_data() {
                     console.log('post');
                     const value_data = {
-                        'nama_spbe': $("#post_nama_spbe").val(),
+                        'nama_spbe': $("#post_name_spbe").val(),
                         'telepon_spbe': $("#post_telepon_spbe").val(),
                         'alamat_spbe': $("#post_alamat_spbe").val(),
                         'kapasitas_tt': $("#post_kapasitas_tt").val(),
@@ -351,10 +351,10 @@
                         'password': $("#post_password").val(),
                         'KEY-SPBE': 'SPBE'
                     }
-                    // console.log(value_data);
+                    console.log(value_data);
                     $.ajax({
                         type: 'POST',
-                        url: " <?= base_url() ?>Rest_API/spbe",
+                        url: " <?= base_url() ?>Rest_API/SPBE",
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
                             'Authorization': "Basic " + btoa("gas:gas")

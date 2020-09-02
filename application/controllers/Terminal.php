@@ -18,7 +18,7 @@ class Terminal extends CI_Controller
 
     public function index()
     {
-        $data['side'] = 'dashboard';
+        $data['side'] = 'Dashboard';
         $this->load->view('Terminal/dashboard', $data);
     }
     public function profil()
