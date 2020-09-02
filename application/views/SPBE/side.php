@@ -7,20 +7,16 @@
         </a>
         <a href="#" class="x-navigation-control"></a>
     </li>
-    <li class="xn-profile">
-        <a href="#" class="profile-mini">
-            <img src="<?= base_url() ?>assets/assets/images/users/avatar.jpg" alt="John Doe" />
-        </a>
+    <div class="xn-profile">
         <div class="profile">
             <div class="profile-image">
                 <img src="<?= base_url() ?>assets/assets/images/users/no-image.jpg" alt="John Doe" />
             </div>
-            <div class="profile-controls">
-                <a href="pages-profile.html" class="profile-control-left"><span class="fa fa-info"></span></a>
-                <a href="pages-messages.html" class="profile-control-right"><span class="fa fa-envelope"></span></a>
+            <div class="profile-data">
+                <a type="submit" class="btn btn-info" data-toggle="modal" data-target="#Profil">Profil</a>
             </div>
         </div>
-    </li>
+    </div>
     <li class="xn-title">Dashboard</li>
     <li <?php if ($side == 'Dashboard') {
             echo ' class="active" ';

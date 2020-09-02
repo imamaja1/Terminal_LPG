@@ -3,20 +3,16 @@
         <a href="index.html">Patra Niaga</a>
         <a href="#" class="x-navigation-control"></a>
     </li>
-    <li class="xn-profile">
-        <a href="#" class="profile-mini">
-            <img src="<?= base_url() ?>assets/assets/images/users/avatar.jpg" alt="John Doe" />
-        </a>
+    <div class="xn-profile">
         <div class="profile">
             <div class="profile-image">
                 <img src="<?= base_url() ?>assets/assets/images/users/no-image.jpg" alt="John Doe" />
             </div>
             <div class="profile-data">
-                <div class="profile-data-name">John Doe</div>
+                <a type="submit" class="btn btn-info" data-toggle="modal" data-target="#Profil">Profil</a>
             </div>
-
         </div>
-    </li>
+    </div>
     <li class="xn-title">Dashboard</li>
     <li <?php if ($side == 'dashboard') {
             echo ' class="active" ';

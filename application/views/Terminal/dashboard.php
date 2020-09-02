@@ -331,7 +331,6 @@
         </div>
     </div>
 
-
     <!-- START PRELOADS -->
     <audio id="audio-alert" src="<?= base_url() ?>assets/audio/alert.mp3" preload="auto"></audio>
     <audio id="audio-fail" src="<?= base_url() ?>assets/audio/fail.mp3" preload="auto"></audio>
