@@ -51,10 +51,10 @@
                     <div class="col-md-12">
 
                         <div class="alert alert-success tambah" style="display: none" role="tambah">
-                            Penambaha Data Telah Berhasil
+                            Penambahan Data Telah Berhasil
                         </div>
                         <div class="alert alert-info put" style="display: none" role="put">
-                            Pengupdatan Data Telah Berhasil
+                            Pembaruan Data Telah Berhasil
                         </div>
                         <div class="alert alert-danger delete" style="display: none" role="delete">
                             Penghapusan Data Telah Berhasil
