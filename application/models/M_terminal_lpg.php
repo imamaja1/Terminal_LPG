@@ -46,7 +46,7 @@ class M_terminal_lpg extends CI_Model
     }
     public function update_terminal_lpg($data)
     {
-        if ($data['nama_terminal'] == '' || $data['telepon_terminal'] == '' || $data['alamat_terminal'] == '' || $data['username'] == '' || $data['password'] == '') {
+        if ($data['nama_terminal'] == '' || $data['telepon_terminal'] == '' || $data['alamat_terminal'] == '' || $data['username'] == '') {
             return $this->empty_response();
         } else {
             $this->db->where('kode_terminal', $data['kode_terminal']);

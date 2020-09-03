@@ -50,14 +50,25 @@ class Terminal_lpg extends REST_Controller
 
     public function index_put()
     {
-        $data = array(
-            'kode_terminal' => $this->put('kode_terminal'),
-            'nama_terminal' => $this->put('nama_terminal'),
-            'telepon_terminal' => $this->put('telepon_terminal'),
-            'alamat_terminal' => $this->put('alamat_terminal'),
-            'username' => $this->put('username'),
-            'password' => md5($this->put('password'))
-        );
+        if ($this->put('password')) {
+            $data = array(
+                'kode_terminal' => $this->put('kode_terminal'),
+                'nama_terminal' => $this->put('nama_terminal'),
+                'telepon_terminal' => $this->put('telepon_terminal'),
+                'alamat_terminal' => $this->put('alamat_terminal'),
+                'username' => $this->put('username'),
+            );
+        } else {
+            $data = array(
+                'kode_terminal' => $this->put('kode_terminal'),
+                'nama_terminal' => $this->put('nama_terminal'),
+                'telepon_terminal' => $this->put('telepon_terminal'),
+                'alamat_terminal' => $this->put('alamat_terminal'),
+                'username' => $this->put('username'),
+                'password' => md5($this->put('password'))
+            );
+        }
+
         $respone = $this->M_terminal_lpg->update_terminal_lpg($data);
         $this->response($respone, REST_Controller::HTTP_CREATED);
     }

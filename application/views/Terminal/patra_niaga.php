@@ -435,6 +435,7 @@
                 var kode_skid_tank;
                 var kode_supir1;
                 var kode_supir2;
+                var password_patra;
 
                 function view_patra_niaga() {
                     $.ajax({
@@ -454,24 +455,37 @@
                             $("#put_alamat_patra_niaga").val(response.data[0].alamat_patra_niaga);
                             $("#put_username").val(response.data[0].username);
                             $("#put_password").val(response.data[0].password);
+                            password_patra = response.data[0].password;
                         }
                     });
                 }
 
                 function put_patra_niaga() {
-                    console.log('put');
-                    const value_data = {
-                        'kode_patra_niaga': kode_patra_niaga,
-                        'nama_patra_niaga': $("#put_nama_patra_niaga").val(),
-                        'telepon_patra_niaga': $("#put_telepon_patra_niaga").val(),
-                        'alamat_patra_niaga': $("#put_alamat_patra_niaga").val(),
-                        'username': $("#put_username").val(),
-                        'password': $("#put_password").val(),
-                        'KEY-SPBE': 'SPBE'
+                    var value_data;
+                    if ($("#put_password").val() == password_patra) {
+                        value_data = {
+                            'kode_patra_niaga': kode_patra_niaga,
+                            'nama_patra_niaga': $("#put_nama_patra_niaga").val(),
+                            'telepon_patra_niaga': $("#put_telepon_patra_niaga").val(),
+                            'alamat_patra_niaga': $("#put_alamat_patra_niaga").val(),
+                            'username': $("#put_username").val(),
+                            'password': false,
+                            'KEY-SPBE': 'SPBE'
+                        }
+                    } else {
+                        value_data = {
+                            'kode_patra_niaga': kode_patra_niaga,
+                            'nama_patra_niaga': $("#put_nama_patra_niaga").val(),
+                            'telepon_patra_niaga': $("#put_telepon_patra_niaga").val(),
+                            'alamat_patra_niaga': $("#put_alamat_patra_niaga").val(),
+                            'username': $("#put_username").val(),
+                            'password': $("#put_password").val(),
+                            'KEY-SPBE': 'SPBE'
+                        }
                     }
                     $.ajax({
                         type: 'PUT',
-                        url: " <?= base_url() ?>Rest_API/patra_niaga",
+                        url: " <?= base_url() ?>Rest_API/Patra_niaga",
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
                             'Authorization': "Basic " + btoa("gas:gas")
@@ -480,9 +494,9 @@
                         dataType: 'json',
                         data: value_data,
                         success: function(response) {
-                            console.log(response.message);
+                            console.log(response.message)
                             $(".put").show();
-                            $("#datatable").DataTable().ajax.reload();
+                            view_patra_niaga()
                         }
                     });
                 }

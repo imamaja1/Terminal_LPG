@@ -36,26 +36,37 @@ class Patra_niaga extends REST_Controller
     }
     public function index_post()
     {
+
         $data = array(
             'nama_patra_niaga' => $this->post('nama_patra_niaga'),
             'alamat_patra_niaga' => $this->post('alamat_patra_niaga'),
             'telepon_patra_niaga' => $this->post('telepon_patra_niaga'),
             'username' => $this->post('username'),
-            'password' => $this->post('password'),
+            'password' => md5($this->post('password')),
         );
         $respone = $this->M_patra_niaga->add_patra_niaga($data);
         $this->response($respone, REST_Controller::HTTP_CREATED);
     }
     public function index_put()
     {
-        $data = array(
-            'kode_patra_niaga' => $this->put('kode_patra_niaga'),
-            'nama_patra_niaga' => $this->put('nama_patra_niaga'),
-            'alamat_patra_niaga' => $this->put('alamat_patra_niaga'),
-            'telepon_patra_niaga' => $this->put('telepon_patra_niaga'),
-            'username' => $this->put('username'),
-            'password' => md5($this->put('password')),
-        );
+        if ($this->put('password')) {
+            $data = array(
+                'kode_patra_niaga' => $this->put('kode_patra_niaga'),
+                'nama_patra_niaga' => $this->put('nama_patra_niaga'),
+                'alamat_patra_niaga' => $this->put('alamat_patra_niaga'),
+                'telepon_patra_niaga' => $this->put('telepon_patra_niaga'),
+                'username' => $this->put('username'),
+            );
+        } else {
+            $data = array(
+                'kode_patra_niaga' => $this->put('kode_patra_niaga'),
+                'nama_patra_niaga' => $this->put('nama_patra_niaga'),
+                'alamat_patra_niaga' => $this->put('alamat_patra_niaga'),
+                'telepon_patra_niaga' => $this->put('telepon_patra_niaga'),
+                'username' => $this->put('username'),
+                'password' => md5($this->put('password')),
+            );
+        }
         $respone = $this->M_patra_niaga->update_patra_niaga($data);
         $this->response($respone, REST_Controller::HTTP_CREATED);
     }

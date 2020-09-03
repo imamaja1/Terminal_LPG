@@ -107,6 +107,7 @@
     <!-- END SCRIPTS -->
     <script type="text/javascript">
         var id;
+        var password;
         $.ajax({
             type: 'GET',
             headers: {
@@ -135,6 +136,7 @@
                         $("#alamat_terminal").val(response.data[0].alamat_terminal);
                         $("#username").val(response.data[0].username);
                         $("#password").val(response.data[0].password);
+                        password = response.data[0].password;
                     }
                 });
             }
@@ -142,17 +144,29 @@
 
 
         function put() {
+            var value_data;
             console.log('put');
-            const value_data = {
-                'kode_terminal': id, //sesion
-                'nama_terminal': $("#nama_terminal").val(),
-                'telepon_terminal': $("#telepon_terminal").val(),
-                'alamat_terminal': $("#alamat_terminal").val(),
-                'username': $("#username").val(), //sesion
-                'password': $("#password").val(), //sesion
-                'KEY-SPBE': 'SPBE'
+            if ($("#password").val() == password) {
+                value_data = {
+                    'kode_terminal': id, //sesion
+                    'nama_terminal': $("#nama_terminal").val(),
+                    'telepon_terminal': $("#telepon_terminal").val(),
+                    'alamat_terminal': $("#alamat_terminal").val(),
+                    'username': $("#username").val(), //sesion
+                    'password': false,
+                    'KEY-SPBE': 'SPBE'
+                }
+            } else {
+                value_data = {
+                    'kode_terminal': id, //sesion
+                    'nama_terminal': $("#nama_terminal").val(),
+                    'telepon_terminal': $("#telepon_terminal").val(),
+                    'alamat_terminal': $("#alamat_terminal").val(),
+                    'username': $("#username").val(), //sesion
+                    'password': $("#password").val(), //sesion
+                    'KEY-SPBE': 'SPBE'
+                }
             }
-
             console.log(value_data);
             $.ajax({
                 type: 'PUT',
@@ -187,7 +201,6 @@
                     });
                 }
             });
-
         }
     </script>
 </body>

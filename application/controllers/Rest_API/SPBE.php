@@ -55,8 +55,6 @@ class SPBE extends REST_Controller
 
   public function index_put()
   {
-
-
     $data = array(
       'kode_spbe' => $this->put('kode_spbe'),
       'nama_spbe' => $this->put('nama_spbe'),
@@ -68,11 +66,15 @@ class SPBE extends REST_Controller
       'jarak' => $this->put('jarak'),
     );
     if ($this->put('password') &&  $this->put('username')) {
-      $data['username'] = $this->put('username');
-      $data['password'] = md5($this->put('password'));
+      if ($this->put('password') == 'false') {
+        $data['username'] = $this->put('username');
+      } else {
+        $data['username'] = $this->put('username');
+        $data['password'] = md5($this->put('password'));
+      }
     }
     $respone = $this->M_SPBE->update_SPBE($data);
-    $this->response($respone, REST_Controller::HTTP_CREATED);
+    $this->response($data, REST_Controller::HTTP_CREATED);
   }
 
   public function index_delete()

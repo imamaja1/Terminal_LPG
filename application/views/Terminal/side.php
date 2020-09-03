@@ -8,8 +8,8 @@
             <div class="profile-image">
                 <img src="<?= base_url() ?>assets/assets/images/users/no-image.jpg" alt="John Doe" />
             </div>
-            <div class="profile-data">
-                <a type="submit" class="btn btn-info" onclick="Profil()" data-toggle="modal" data-target="#Profil">Profil</a>
+            <div class="profile-image">
+                <a style="background-color: antiquewhite;" class="btn " onclick="Profil()" data-toggle="modal" data-target="#Profil"><span class="fa fa-camera"></span></a>
             </div>
         </div>
     </div>

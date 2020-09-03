@@ -27,7 +27,7 @@ class M_spbe extends CI_Model
   }
   public function add_SPBE($data)
   {
-    if ($data['nama_spbe'] == '' || $data['alamat_spbe'] == '' || $data['telepon_spbe'] == '' || $data['dot'] == '' || $data['jarak'] == '' || $data['username'] == '' || $data['password'] == '' || $data['kapasitas_tt'] == '' || $data['limit'] == '') {
+    if ($data['nama_spbe'] == '' || $data['alamat_spbe'] == '' || $data['telepon_spbe'] == '' || $data['dot'] == '' || $data['jarak'] == '' || $data['username'] == '' || $data['kapasitas_tt'] == '' || $data['limit'] == '') {
       return $this->empty_response();
     } else {
       $insert = $this->db->insert("t_spbe", $data);

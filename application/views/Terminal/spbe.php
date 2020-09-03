@@ -300,6 +300,7 @@
             <!-- END SCRIPTS -->
             <script>
                 var kode_spbe;
+                var password;
                 $('#datatable').DataTable({
                     distroy: true,
                     ajax: {
@@ -371,9 +372,7 @@
                     });
                 }
 
-
                 function view_data(id) {
-                    console.log('view' + ' ' + id);
                     $.ajax({
                         type: 'GET',
                         url: " <?= base_url() ?>Rest_API/spbe?KEY-SPBE=SPBE&id=" + id,
@@ -404,29 +403,46 @@
                             $("#put_limit").val(response.data[0].limit);
                             $("#put_username").val(response.data[0].username);
                             $("#put_password").val(response.data[0].password);
+                            password = response.data[0].password;
                         }
                     });
                 }
 
                 function put_data() {
                     console.log('put');
-                    const value_data = {
-                        'kode_spbe': kode_spbe,
-                        'nama_spbe': $("#put_nama_spbe").val(),
-                        'telepon_spbe': $("#put_telepon_spbe").val(),
-                        'alamat_spbe': $("#put_alamat_spbe").val(),
-                        'kapasitas_tt': $("#put_kapasitas_tt").val(),
-                        'dot': $("#put_dot").val(),
-                        'jarak': $("#put_jarak").val(),
-                        'limit': $("#put_limit").val(),
-                        'username': $("#put_username").val(),
-                        'password': $("#put_password").val(),
-                        'KEY-SPBE': 'SPBE'
+                    var value_data;
+                    if ($("#put_password").val() == password) {
+                        value_data = {
+                            'kode_spbe': kode_spbe,
+                            'nama_spbe': $("#put_nama_spbe").val(),
+                            'telepon_spbe': $("#put_telepon_spbe").val(),
+                            'alamat_spbe': $("#put_alamat_spbe").val(),
+                            'kapasitas_tt': $("#put_kapasitas_tt").val(),
+                            'dot': $("#put_dot").val(),
+                            'jarak': $("#put_jarak").val(),
+                            'limit': $("#put_limit").val(),
+                            'username': $("#put_username").val(),
+                            'password': 'false',
+                            'KEY-SPBE': 'SPBE'
+                        }
+                    } else {
+                        value_data = {
+                            'kode_spbe': kode_spbe,
+                            'nama_spbe': $("#put_nama_spbe").val(),
+                            'telepon_spbe': $("#put_telepon_spbe").val(),
+                            'alamat_spbe': $("#put_alamat_spbe").val(),
+                            'kapasitas_tt': $("#put_kapasitas_tt").val(),
+                            'dot': $("#put_dot").val(),
+                            'jarak': $("#put_jarak").val(),
+                            'limit': $("#put_limit").val(),
+                            'username': $("#put_username").val(),
+                            'password': $("#put_password").val(),
+                            'KEY-SPBE': 'SPBE'
+                        }
                     }
-                    console.log(value_data);
                     $.ajax({
                         type: 'PUT',
-                        url: " <?= base_url() ?>Rest_API/spbe",
+                        url: " <?= base_url() ?>Rest_API/SPBE",
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
                             'Authorization': "Basic " + btoa("gas:gas")

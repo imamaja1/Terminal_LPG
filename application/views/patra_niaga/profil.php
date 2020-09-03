@@ -395,6 +395,7 @@
                 var kode_skid_tank;
                 var kode_supir1;
                 var kode_supir2;
+                var password;
 
                 function view_patra_niaga() {
                     $.ajax({
@@ -414,21 +415,36 @@
                             $("#put_alamat_patra_niaga").val(response.data[0].alamat_patra_niaga);
                             $("#put_username").val(response.data[0].username);
                             $("#put_password").val(response.data[0].password);
+                            password = response.data[0].password;
                         }
                     });
                 }
 
                 function put_patra_niaga() {
                     console.log('put');
-                    const value_data = {
-                        'kode_patra_niaga': kode_patra_niaga,
-                        'nama_patra_niaga': $("#put_nama_patra_niaga").val(),
-                        'telepon_patra_niaga': $("#put_telepon_patra_niaga").val(),
-                        'alamat_patra_niaga': $("#put_alamat_patra_niaga").val(),
-                        'username': $("#put_username").val(),
-                        'password': $("#put_password").val(),
-                        'KEY-SPBE': 'SPBE'
+                    var value_data;
+                    if ($("#put_password").val() == password) {
+                        value_data = {
+                            'kode_patra_niaga': kode_patra_niaga,
+                            'nama_patra_niaga': $("#put_nama_patra_niaga").val(),
+                            'telepon_patra_niaga': $("#put_telepon_patra_niaga").val(),
+                            'alamat_patra_niaga': $("#put_alamat_patra_niaga").val(),
+                            'username': $("#put_username").val(),
+                            'password': false,
+                            'KEY-SPBE': 'SPBE'
+                        }
+                    } else {
+                        value_data = {
+                            'kode_patra_niaga': kode_patra_niaga,
+                            'nama_patra_niaga': $("#put_nama_patra_niaga").val(),
+                            'telepon_patra_niaga': $("#put_telepon_patra_niaga").val(),
+                            'alamat_patra_niaga': $("#put_alamat_patra_niaga").val(),
+                            'username': $("#put_username").val(),
+                            'password': $("#put_password").val(),
+                            'KEY-SPBE': 'SPBE'
+                        }
                     }
+
                     $.ajax({
                         type: 'PUT',
                         url: " <?= base_url() ?>Rest_API/patra_niaga",

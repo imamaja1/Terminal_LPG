@@ -46,7 +46,7 @@ class M_patra_niaga extends CI_Model
   }
   public function update_patra_niaga($data)
   {
-    if ($data['nama_patra_niaga'] == '' || $data['alamat_patra_niaga'] == '' || $data['telepon_patra_niaga'] == '' || $data['username'] == '' || $data['password'] == '') {
+    if ($data['nama_patra_niaga'] == '' || $data['alamat_patra_niaga'] == '' || $data['telepon_patra_niaga'] == '' || $data['username'] == '') {
       return $this->empty_response();
     } else {
       $this->db->where('kode_patra_niaga', $data['kode_patra_niaga']);
