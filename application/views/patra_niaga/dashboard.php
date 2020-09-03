@@ -22,7 +22,7 @@
             </ul>
             <ul class="breadcrumb">
                 <li><a href="#">Home</a></li>
-                <li class="active">Profil</li>
+                <li class="active">Dashboard</li>
             </ul>
             <div class="page-content-wrap">
                 <div class="col-md-6">
@@ -43,8 +43,8 @@
                         <div class="panel-heading">
                             <div class="panel-title-box">
                                 <h3>Skid Tank</h3>
-                                <span>Progras skid tank</span>
-                            </div>
+                                <span>Progres Skid Tank</span>
+                            </div> 
                         </div>
                         <div class="panel-body">
                             <div class="row stacked">
@@ -60,7 +60,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <div class="panel-title-box">
-                                <h3>Aktifitas Truk</h3>
+                                <h3>Aktivitas Truk</h3>
                             </div>
                             <ul class="panel-controls" style="margin-top: 2px;">
                                 <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>

@@ -36,7 +36,7 @@
         } ?>>
         <a href="<?= base_url() ?>Patra_niaga/profil"><span class="fa fa-user"></span> <span class="xn-text">Profil</span></a>
     </li>
-    <li class="xn-title">Data</li>
+    <li class="xn-title">Log Out</li>
     <li <?php if ($side == 'log_out') {
             echo ' class="active" ';
         } ?>>

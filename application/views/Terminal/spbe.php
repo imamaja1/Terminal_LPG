@@ -66,7 +66,7 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Nama SPBE</th>
-                                            <th>Telepone</th>
+                                            <th>No Telepon</th>
                                             <th>DOT</th>
                                             <th>Kapasitas TT</th>
                                             <th style="width: 20px;">Action </th>
@@ -98,7 +98,7 @@
                                 <hr>
                             </div>
                             <div class="form-group col-md-6 border border-primary">
-                                <label for="exampleInputEmail1">Telepon</label>
+                                <label for="exampleInputEmail1">No Telepon</label>
                                 <br>
                                 <span id="view_telepon_spbe"></span>
                                 <hr>
@@ -157,7 +157,7 @@
                             </div>
 
                             <div class="form-group col-md-6">
-                                <label for="exampleInputEmail1">Telepone</label>
+                                <label for="exampleInputEmail1">No Telepon</label>
                                 <input type="" class="form-control" id="post_telepon_spbe" aria-describedby="emailHelp">
                             </div>
 
@@ -166,7 +166,7 @@
                                 <input type="" class="form-control" id="post_kapasitas_tt" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="exampleInputEmail1">Jarak</label>
+                                <label for="exampleInputEmail1">Jarak SPBE</label>
                                 <input type="" class="form-control" id="post_jarak" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group col-md-12">
@@ -190,7 +190,7 @@
                                 <input type="" class="form-control" id="post_username" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="exampleInputEmail1">password</label>
+                                <label for="exampleInputEmail1">Password</label>
                                 <input type="password" class="form-control" id="post_password" aria-describedby="emailHelp">
                             </div>
 

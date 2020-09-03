@@ -26,7 +26,7 @@
         } ?>>
         <a href=" <?= base_url() ?>Terminal/Monitoring"><span class="fa fa-desktop"></span> <span class="xn-text">Monitoring</span></a>
     </li> -->
-    <li class="xn-title">DATA</li>
+    <li class="xn-title">Data</li>
     <li <?php if ($side == 'spbe') {
             echo ' class="active" ';
         } ?>>

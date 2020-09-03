@@ -40,10 +40,10 @@
                     <div class="col-md-12">
 
                         <div class="alert alert-success tambah" style="display: none" role="tambah">
-                            Penambaha Data Telah Berhasil
+                            Penambahan Data Telah Berhasil
                         </div>
                         <div class="alert alert-info put" style="display: none" role="put">
-                            Pengupdatan Data Telah Berhasil
+                            Pembaruan Data Telah Berhasil
                         </div>
                         <div class="alert alert-danger delete" style="display: none" role="delete">
                             Penghapusan Data Telah Berhasil
@@ -67,7 +67,7 @@
                                             <th>Kapasitas (MT)</th>
                                             <th>Odometer</th>
                                             <th>Status</th>
-                                            <th>Ket</th>
+                                            <th>Keterangan</th>
                                             <th style="width: 20px;">Action</th>
                                         </tr>
                                     </thead>
@@ -86,7 +86,7 @@
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                     <div class="modal-content">
                         <div class="modal-header" style="background-color: white;">
-                            <h3 class="modal-title" id="exampleModalLabel">View Skid Tank</h3>
+                            <h3 class="modal-title" id="exampleModalLabel">Data Skid Tank</h3>
                         </div>
                         <div class="modal-body col-md-12" style="background-color: white;">
                             <div class="form-group col-md-4 border border-primary">
@@ -192,7 +192,7 @@
                                 <input type="" class="form-control" id="post_kapasitas" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group col-md-3">
-                                <label for="exampleInputEmail1">Odemeter</label>
+                                <label for="exampleInputEmail1">Odometer</label>
                                 <input class="form-control" id="post_odometer" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group col-md-3">
@@ -212,7 +212,7 @@
                                 <input type="" class="form-control" id="post_nama_supir1" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="exampleInputEmail1">TGL_lahir</label>
+                                <label for="exampleInputEmail1">Tanggal Lahir</label>
                                 <input type="date" class="form-control" id="post_tgl_lahir1" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group col-md-4">
@@ -232,7 +232,7 @@
                                 <input type="" class="form-control" id="post_nama_supir2" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="exampleInputEmail1">TGL_lahir</label>
+                                <label for="exampleInputEmail1">Tanggal Lahir</label>
                                 <input type="date" class="form-control" id="post_tgl_lahir2" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group col-md-4">
@@ -261,7 +261,7 @@
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h3 class="modal-title" id="exampleModalLabel">Input Data Skid Tank</h3>
+                            <h3 class="modal-title" id="exampleModalLabel">Update Data Skid Tank</h3>
                         </div>
                         <div class="modal-body row">
                             <div class="form-group col-md-4">
@@ -294,7 +294,7 @@
                                 <input type="" class="form-control" id="put_nama_supir1" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="exampleInputEmail1">TGL_lahir</label>
+                                <label for="exampleInputEmail1">Tanggal Lahir</label>
                                 <input type="date" class="form-control" id="put_tgl_lahir1" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group col-md-4">
@@ -314,7 +314,7 @@
                                 <input type="" class="form-control" id="put_nama_supir2" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="exampleInputEmail1">TGL_lahir</label>
+                                <label for="exampleInputEmail1">Tanggal Lahir</label>
                                 <input type="date" class="form-control" id="put_tgl_lahir2" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group col-md-4">
@@ -343,7 +343,7 @@
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Delete Data</h5>
+                            <h5 class="modal-title" id="exampleModalLabel"></h5>
                         </div>
                         <div class="modal-body" style="text-align: center;">
                             <h2 class="modal-title" id="exampleModalLabel"> Yakin Ingin Menghapus ?</h2>

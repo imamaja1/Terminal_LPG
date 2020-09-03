@@ -82,7 +82,7 @@
                                         <input type="password" class="form-control" id="put_password" aria-describedby="emailHelp">
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <button type="submit" class="btn btn-info pull-right" onclick="put_patra_niaga()">Update Data</button>
+                                        <button type="submit" class="btn btn-info pull-right" onclick="put_patra_niaga()">Update</button>
                                     </div>
 
                                 </div>
@@ -116,6 +116,7 @@
                                             <th>Kapasitas (MT)</th>
                                             <th>Odometer</th>
                                             <th>Status</th>
+                                            <th>Keterangan</th>
                                             <th style="width: 30px;">Action</th>
                                         </tr>
                                     </thead>
@@ -260,7 +261,7 @@
                                 <input type="" class="form-control" id="post_nama_supir1" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="exampleInputEmail1">TGL_lahir</label>
+                                <label for="exampleInputEmail1">Tanggal Lahir</label>
                                 <input type="date" class="form-control" id="post_tgl_lahir1" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group col-md-4">
@@ -280,7 +281,7 @@
                                 <input type="" class="form-control" id="post_nama_supir2" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="exampleInputEmail1">TGL_lahir</label>
+                                <label for="exampleInputEmail1">Tanggal Lahir</label>
                                 <input type="date" class="form-control" id="post_tgl_lahir2" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group col-md-4">
@@ -309,7 +310,7 @@
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h3 class="modal-title" id="exampleModalLabel">Input Data Skid Tank</h3>
+                            <h3 class="modal-title" id="exampleModalLabel">Update Data Skid Tank</h3>
                         </div>
                         <div class="modal-body row">
                             <div class="form-group col-md-4">
@@ -342,7 +343,7 @@
                                 <input type="" class="form-control" id="put_nama_supir1" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="exampleInputEmail1">TGL_lahir</label>
+                                <label for="exampleInputEmail1">Tanggal Lahir</label>
                                 <input type="date" class="form-control" id="put_tgl_lahir1" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group col-md-4">
@@ -362,7 +363,7 @@
                                 <input type="" class="form-control" id="put_nama_supir2" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="exampleInputEmail1">TGL_lahir</label>
+                                <label for="exampleInputEmail1">Tanggal Lahir</label>
                                 <input type="date" class="form-control" id="put_tgl_lahir2" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group col-md-4">
@@ -532,8 +533,34 @@
                                     return '<span class="label label-danger">Not Ready</span>'
                                 }
                             }
-                        },
-                        {
+                        },{
+                        data: "",
+                        render: function(data, type, row, meta) {
+                            if (row['status'] == '1') {
+                                return '<span class="label label-info">Ready</span>';
+                            } else if (row['status'] == '2') {
+                                if (moment(row['tgl_berangkat_tujuan']) < times) {
+                                    if (moment(row['tgl_sampai_tujuan']) < times && moment(response.data[i].tgl_berangkat_tujuan) < moment(response.data[i].tgl_sampai_tujuan)) {
+                                        if (moment(row['tgl_kembali']) < times) {
+                                            if (moment(row['tgl_sampai_kembali']) < times) {
+                                                return 'telah selesai';
+                                            } else {
+                                                return '<a href="#" data-toggle="modal" data-target="#timeline" onclick="kode3(' + row['kode_permintaan'] + ',6)"><span class="label label-default">Skid Tank telah Pangakalan</span></a>'
+                                            }
+                                        } else {
+                                            return '<a href="#" data-toggle="modal" data-target="#timeline" onclick="kode3(' + row['kode_permintaan'] + ', 5)" > < span class = "label label-default" > Prose menuju Pangakalan < /span></a > '
+                                        }
+                                    } else {
+                                        return '<a href="#" data-toggle="modal" data-target="#timeline" onclick="kode3(' + row['kode_skid_tank'] + ',4)"><span class="label label-default">Proses Penyaluran Gas</span></a>'
+                                    }
+                                } else {
+                                    return '<a href="#" data-toggle="modal" data-target="#timeline" onclick="kode3(' + row['kode_skid_tank'] + ',4)"><span class="label label-default" >Proses menuju PSBE</span></a>'
+                                }
+                            } else if (drow['status'] == '3') {
+                                return '<span class="label label-danger">Tidak Dapat Digunakan</span>'
+                            }
+                        }
+                    }, {
                             data: "kode_skid_tank",
                             className: "center",
                             render: function(data, type, row, meta) {
