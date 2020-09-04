@@ -19,13 +19,7 @@
         } ?>>
         <a href=" <?= base_url() ?>patra_niaga"><span class="fa fa-dashboard"></span> <span class="xn-text">Dashboard</span></a>
     </li>
-    <!-- <li class="xn-title">Aktivitas</li>
-    <li <?php if ($side == 'permintaan') {
-            echo ' class="active" ';
-        } ?>>
-        <a href=" <?= base_url() ?>patra_niaga/permintaan"><span class="fa fa-desktop"></span> <span class="xn-text">Monitoring</span></a>
-    </li> -->
-    <li class="xn-title">Data</li>
+    <li class="xn-title">DATA</li>
     <li <?php if ($side == 'truk') {
             echo ' class="active" ';
         } ?>>
