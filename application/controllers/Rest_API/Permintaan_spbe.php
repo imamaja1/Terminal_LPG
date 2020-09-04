@@ -8,6 +8,7 @@ class Permintaan_spbe extends REST_Controller
     {
         parent::__construct();
         $this->load->model('M_permintaan');
+        date_default_timezone_set('Asia/Jakarta');
     }
     public function index_get()
     {
