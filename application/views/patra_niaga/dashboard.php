@@ -453,7 +453,7 @@
             element: 'dashboard-bar-1',
             xkey: 'nopol',
             ykeys: ['jarak'],
-            labels: ['Jarak Yang Ditepuh'],
+            labels: ['Jarak Yang Ditempuh'],
             barColors: ['#33414E', '#1caf9a'],
             gridTextSize: '12px',
             hideHover: true,
