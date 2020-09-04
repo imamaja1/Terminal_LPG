@@ -210,7 +210,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary pull-right" data-dismiss="modal" style="margin: 0 0 0 0;">close</button>
+                    <button type="button" class="btn btn-primary pull-right" data-dismiss="modal" style="margin: 0 0 0 0;">Tutup</button>
                 </div>
             </div>
         </div>
@@ -453,7 +453,7 @@
                     data: response.data,
                     xkey: 'nopol',
                     ykeys: ['jarak'],
-                    labels: ['Jarak Yang Ditepuh'],
+                    labels: ['Jarak Yang Ditmepuh'],
                     barColors: ['#33414E', '#1caf9a'],
                     gridTextSize: '12px',
                     hideHover: true,

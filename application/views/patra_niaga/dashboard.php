@@ -110,7 +110,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
                 </div>
             </div>
         </div>
@@ -125,7 +125,7 @@
                     <h2 class="modal-title" id="exampleModalLabel"> Yakin Ingin Memverifikasi ?</h2>
                     <br>
                     <button type="button" class="btn btn-primary" data-dismiss="modal" style="margin: 0 10% 0 0;">NO</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal" style="margin: 0 0 0 10%;" onclick="verifikasi()">YES</button>
+                    <button type="button" class="btn btn-info" data-dismiss="modal" style="margin: 0 0 0 10%;" onclick="verifikasi()">YES</button>
                 </div>
             </div>
         </div>
@@ -155,7 +155,7 @@
                     <h2 class="modal-title" id="exampleModalLabel"> Yakin Ingin Melakukan Percepatan ?</h2>
                     <br>
                     <button type="button" class="btn btn-danger" data-dismiss="modal" style="margin: 0 10% 0 0;">NO</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" style="margin: 0 0 0 10%;" onclick="percepatan()">YES</button>
+                    <button type="button" class="btn btn-info" data-dismiss="modal" style="margin: 0 0 0 10%;" onclick="percepatan()">YES</button>
                 </div>
             </div>
         </div>
@@ -180,7 +180,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary pull-right" data-dismiss="modal" style="margin: 0 0 0 0;">close</button>
+                    <button type="button" class="btn btn-primary pull-right" data-dismiss="modal" style="margin: 0 0 0 0;">Tutup</button>
                 </div>
             </div>
         </div>
