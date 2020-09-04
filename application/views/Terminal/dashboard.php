@@ -453,7 +453,7 @@
                     data: response.data,
                     xkey: 'nopol',
                     ykeys: ['jarak'],
-                    labels: ['Jarak Yang Ditmepuh'],
+                    labels: ['Jarak Yang Ditempuh'],
                     barColors: ['#33414E', '#1caf9a'],
                     gridTextSize: '12px',
                     hideHover: true,
