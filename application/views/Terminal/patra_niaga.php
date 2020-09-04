@@ -404,7 +404,31 @@
             </div>
             <!-- END -->
 
-
+            <!-- kalau diinginkan  -->
+            <!-- <div class="modal fade" id="timeline" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="timeline2">
+                                        <div class="line text-muted"></div>
+                                        <article class="panel panel-info panel-outline"></article>
+                                        <div id="datatimeline"></div>
+                                        <div class="separator text-muted"><time>.</time></div>
+                                        <div class="separator text-muted"><time></time></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary pull-right" data-dismiss="modal" style="margin: 0 0 0 0;">close</button>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
 
 
 
@@ -428,6 +452,7 @@
             <!-- START TEMPLATE -->
             <script type="text/javascript" src="<?= base_url() ?>assets/js/plugins.js"></script>
             <script type="text/javascript" src="<?= base_url() ?>assets/js/actions.js"></script>
+            <script type="text/javascript" src="<?= base_url() ?>assets/js/plugins/moment.min.js"></script>
             <!-- END TEMPLATE -->
             <!-- END SCRIPTS -->
             <script>
@@ -437,6 +462,40 @@
                 var kode_supir1;
                 var kode_supir2;
                 var password_patra;
+
+                function kode3(kode, jum) {
+                    document.getElementById('datatimeline').innerHTML = null;
+                    console.log(kode)
+                    $.ajax({
+                        type: 'GET',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                            'Authorization': "Basic " + btoa("gas:gas")
+                        },
+                        url: " <?= base_url() ?>Rest_API/permintaan?KEY-SPBE=SPBE&id=" + kode,
+                        contentType: "application/json",
+                        dataType: 'json',
+                        success: function(response) {
+                            console.log(response)
+                            if (jum > 1) {
+                                document.getElementById('datatimeline').innerHTML += ' <article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body">' + response.data[0].tgl + '<br><strong>Pemintaan Skid Tank</strong> dari <strong>SPBE</strong>.</div></article>';
+                                if (jum > 2) {
+                                    document.getElementById('datatimeline').innerHTML += ' <article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body">' + response.data[0].tgl_berangkat_tujuan + '<br><strong>Verifikasi Perminaan Skid Tank</strong> <br>oleh <strong>Patra Niaga</strong>.</div></article>';
+                                    if (jum > 3) {
+                                        document.getElementById('datatimeline').innerHTML += '<article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body">' + response.data[0].tgl_berangkat_tujuan + '<br> Proses <strong>Skid Tank Berangkat</strong>.</div></article>';
+                                        if (jum > 4) {
+                                            document.getElementById('datatimeline').innerHTML += '<article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body">' + response.data[0].tgl_sampai_tujuan + '<br> Proses <strong>Skid Tank Berangkat</strong>.</div></article>'
+                                            if (jum > 5) {
+                                                document.getElementById('datatimeline').innerHTML += '<article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body">' + response.data[0].tgl_kembali + '<br> Proses <strong>Skid Tank Berangkat</strong>.</div></article>'
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                    })
+                }
 
                 function view_patra_niaga() {
                     $.ajax({
@@ -533,34 +592,38 @@
                                     return '<span class="label label-danger">Not Ready</span>'
                                 }
                             }
-                        },{
-                        data: "",
-                        render: function(data, type, row, meta) {
-                            if (row['status'] == '1') {
-                                return '<span class="label label-info">Ready</span>';
-                            } else if (row['status'] == '2') {
-                                if (moment(row['tgl_berangkat_tujuan']) < times) {
-                                    if (moment(row['tgl_sampai_tujuan']) < times && moment(response.data[i].tgl_berangkat_tujuan) < moment(response.data[i].tgl_sampai_tujuan)) {
-                                        if (moment(row['tgl_kembali']) < times) {
-                                            if (moment(row['tgl_sampai_kembali']) < times) {
-                                                return 'telah selesai';
+                        }, {
+                            data: "",
+                            render: function(data, type, row, meta) {
+                                var x = new Date(new Date().toLocaleString('en-US', {
+                                    timeZone: 'Asia/Jakarta'
+                                }));
+                                const times = moment(x.getFullYear() + '-' + (x.getMonth() + 1) + '-' + x.getDate() + ' ' + x.getHours() + ':' + x.getMinutes() + ':' + x.getSeconds());
+                                if (row['status'] == '1') {
+                                    return '<span class="label label-info">Ready</span>';
+                                } else if (row['status'] == '2') {
+                                    if (moment(row['tgl_berangkat_tujuan']) < times) {
+                                        if (moment(row['tgl_sampai_tujuan']) < times && moment(response.data[i].tgl_berangkat_tujuan) < moment(response.data[i].tgl_sampai_tujuan)) {
+                                            if (moment(row['tgl_kembali']) < times) {
+                                                if (moment(row['tgl_sampai_kembali']) < times) {
+                                                    return 'telah selesai';
+                                                } else {
+                                                    return '<a href="#" data-toggle="modal" data-target="#timeline" onclick="kode3(' + row['kode_permintaan'] + ',6)"><span class="label label-default">Skid Tank telah Pangakalan</span></a>'
+                                                }
                                             } else {
-                                                return '<a href="#" data-toggle="modal" data-target="#timeline" onclick="kode3(' + row['kode_permintaan'] + ',6)"><span class="label label-default">Skid Tank telah Pangakalan</span></a>'
+                                                return '<a href="#" data-toggle="modal" data-target="#timeline" onclick="kode3(' + row['kode_permintaan'] + ', 5)" > < span class = "label label-default" > Prose menuju Pangakalan < /span></a > '
                                             }
                                         } else {
-                                            return '<a href="#" data-toggle="modal" data-target="#timeline" onclick="kode3(' + row['kode_permintaan'] + ', 5)" > < span class = "label label-default" > Prose menuju Pangakalan < /span></a > '
+                                            return '<a href="#" data-toggle="modal" data-target="#timeline" onclick="kode3(' + row['kode_skid_tank'] + ',4)"><span class="label label-default">Proses Penyaluran Gas</span></a>'
                                         }
                                     } else {
-                                        return '<a href="#" data-toggle="modal" data-target="#timeline" onclick="kode3(' + row['kode_skid_tank'] + ',4)"><span class="label label-default">Proses Penyaluran Gas</span></a>'
+                                        return '<a href="#" data-toggle="modal" data-target="#timeline" onclick="kode3(' + row['kode_skid_tank'] + ',4)"><span class="label label-default" >Proses menuju PSBE</span></a>'
                                     }
-                                } else {
-                                    return '<a href="#" data-toggle="modal" data-target="#timeline" onclick="kode3(' + row['kode_skid_tank'] + ',4)"><span class="label label-default" >Proses menuju PSBE</span></a>'
+                                } else if (drow['status'] == '3') {
+                                    return '<span class="label label-danger">Tidak Dapat Digunakan</span>'
                                 }
-                            } else if (drow['status'] == '3') {
-                                return '<span class="label label-danger">Tidak Dapat Digunakan</span>'
                             }
-                        }
-                    }, {
+                        }, {
                             data: "kode_skid_tank",
                             className: "center",
                             render: function(data, type, row, meta) {

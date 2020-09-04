@@ -274,8 +274,6 @@
                 }
 
             })
-
-
         }
 
         function data_permintaan() {
