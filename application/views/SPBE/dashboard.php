@@ -196,7 +196,6 @@
             }
         })
 
-
         function data_permintaan(id) {
             $.ajax({
                 type: 'GET',
@@ -222,7 +221,6 @@
 
         function data_permintaan2(id) {
             var time;
-            console.log(id);
             $.ajax({
                 type: 'GET',
                 headers: {

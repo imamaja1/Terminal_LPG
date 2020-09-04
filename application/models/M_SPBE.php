@@ -35,6 +35,13 @@ class M_spbe extends CI_Model
         $response['status'] = 200;
         $response['error'] = false;
         $response['message'] = 'Data person ditambahkan.';
+        $this->db->order_by('kode_spbe', 'DESC');
+        $id_profil = $this->db->get('t_spbe')->row();
+        $dataprofil = array(
+          'kode_spbe' => $id_profil->kode_spbe,
+          'nama_profil' => 'default-avatar.png'
+        );
+        $this->db->insert("profil2", $dataprofil);
         return $response;
       } else {
         $response['status'] = 502;
@@ -126,8 +133,8 @@ class M_spbe extends CI_Model
 
   public function Profil($data)
   {
-    $this->db->where('id_profil', $data['id_profil']);
-    $update = $this->db->update("profil1", $data);
+    $this->db->where('kode_spbe', $data['kode_spbe']);
+    $update = $this->db->update("profil2", $data);
     if ($update) {
       $response['status'] = 200;
       $response['error'] = false;
@@ -139,5 +146,13 @@ class M_spbe extends CI_Model
       $response['message'] = 'Data person gagal diupdate.';
       return $response;
     }
+  }
+  public function data_profil($id)
+  {
+    $this->db->where('kode_spbe', $id);
+    $response['data'] = $this->db->get('profil2')->row();
+    $response['status'] = 200;
+    $response['error'] = false;
+    return $response;
   }
 }

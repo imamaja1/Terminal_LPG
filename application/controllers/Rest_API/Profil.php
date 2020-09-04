@@ -9,6 +9,7 @@ class Profil extends REST_Controller
         parent::__construct();
         $this->load->model('M_terminal_lpg');
         $this->load->model('M_patra_niaga');
+        $this->load->model('M_SPBE');
     }
     public function Terminal_GET()
     {
@@ -53,7 +54,7 @@ class Profil extends REST_Controller
             if ($this->upload->do_upload('file_profil')) {
                 $data = array(
                     'nama_profil' => $this->upload->data('file_name'),
-                    'id_profil' => '2'
+                    'kode_profil' => '2'
                 );
                 $respone = $this->M_patra_niaga->profil($data);
             }
@@ -62,7 +63,13 @@ class Profil extends REST_Controller
         }
         $this->response($respone, REST_Controller::HTTP_OK);
     }
-    public function SPBE_POST()
+    public function SPBE_GET()
+    {
+        $id = $this->get('id');
+        $respone = $this->M_SPBE->data_profil($id);
+        $this->response($respone, REST_Controller::HTTP_OK);
+    }
+    public function SPBE_POST($id)
     {
         if (isset($_FILES['file_profil']['type'])) {
             $config['upload_path']          = './uploads/';
@@ -74,10 +81,11 @@ class Profil extends REST_Controller
             if ($this->upload->do_upload('file_profil')) {
                 $data = array(
                     'nama_profil' => $this->upload->data('file_name'),
-                    'id_profil' => '1'
+                    'kode_spbe' => $id
                 );
-                $respone = $this->M_terminal_lpg->profil($data);
+                $respone = $this->M_SPBE->profil($data);
             }
+            $respone =  'success';
         } else {
             $respone = 'gagal keterluan';
         }
