@@ -191,12 +191,13 @@
             success: function(response) {
                 id = response.kode_spbe
                 data_permintaan(id)
+                data_permintaan2(id)
                 document.getElementById('namaspbe').innerHTML = response.nama_spbe;
             }
         })
 
 
-        function data_permintaan() {
+        function data_permintaan(id) {
             $.ajax({
                 type: 'GET',
                 headers: {
@@ -219,15 +220,16 @@
             });
         }
 
-        function data_permintaan2() {
+        function data_permintaan2(id) {
             var time;
+            console.log(id);
             $.ajax({
                 type: 'GET',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                     'Authorization': "Basic " + btoa("gas:gas")
                 },
-                url: " <?= base_url() ?>Rest_API/permintaan?KEY-SPBE=SPBE",
+                url: " <?= base_url() ?>Rest_API/permintaan_spbe?KEY-SPBE=SPBE&id=" + id,
                 contentType: "application/json",
                 dataType: 'json',
                 success: function(response) {
@@ -259,7 +261,6 @@
                 }
             })
         }
-        data_permintaan2();
 
         function kode(data) {
             kode_permintaan = data;

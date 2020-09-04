@@ -244,7 +244,6 @@
         var kode_skid_tank;
 
         function kode3(kode, jum) {
-            document.getElementById('datatimeline').innerHTML = null;
             $.ajax({
                 type: 'GET',
                 headers: {
@@ -255,6 +254,7 @@
                 contentType: "application/json",
                 dataType: 'json',
                 success: function(response) {
+                    document.getElementById('datatimeline').innerHTML = null;
                     // document.getElementById('namatimeline').innerHTML = response.data[0].nama_spbe;
                     if (jum > 1) {
                         document.getElementById('datatimeline').innerHTML += ' <article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body">' + response.data[0].tgl + '<br><strong>Pemintaan Skid Tank</strong> dari <strong>SPBE</strong>.</div></article>';
