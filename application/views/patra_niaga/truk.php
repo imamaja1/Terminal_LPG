@@ -496,7 +496,7 @@
                                 return '<span class="label label-info">Ready</span>';
                             } else if (row['status'] == '2') {
                                 if (moment(row['tgl_berangkat_tujuan']) < times) {
-                                    if (moment(row['tgl_sampai_tujuan']) < times && moment(response.data[i].tgl_berangkat_tujuan) < moment(response.data[i].tgl_sampai_tujuan)) {
+                                    if (moment(row['tgl_sampai_tujuan']) < times) {
                                         if (moment(row['tgl_kembali']) < times) {
                                             if (moment(row['tgl_sampai_kembali']) < times) {
                                                 return 'telah selesai';

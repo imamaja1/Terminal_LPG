@@ -229,11 +229,11 @@
                     'Content-Type': 'application/x-www-form-urlencoded',
                     'Authorization': "Basic " + btoa("gas:gas")
                 },
-                url: " <?= base_url() ?>Rest_API/permintaan_spbe?KEY-SPBE=SPBE&id=" + id,
+                url: " <?= base_url() ?>Rest_API/permintaan_spbe/permintaan?KEY-SPBE=SPBE&id=" + id,
                 contentType: "application/json",
                 dataType: 'json',
                 success: function(response) {
-                    // console.log(response);
+                    console.log(response);
                     document.getElementById('progres').innerHTML = null;
                     if (response.status) {
                         var x = new Date(new Date().toLocaleString('en-US', {

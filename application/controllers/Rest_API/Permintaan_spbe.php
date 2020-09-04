@@ -24,6 +24,14 @@ class Permintaan_spbe extends REST_Controller
             ], REST_Controller::HTTP_OK);
         }
     }
+    public function permintaan_get()
+    {
+        $id = $this->get('id');
+        $respone['status'] = '200';
+        $respone['massage'] = 'data belum permintaan';
+        $respone['data'] = $this->M_permintaan->time_permintaan_spbe($id)->result();
+        $this->response($respone, REST_Controller::HTTP_OK);
+    }
     public function index_put()
     {
         date_default_timezone_set('Asia/Jakarta');
@@ -41,5 +49,18 @@ class Permintaan_spbe extends REST_Controller
         );
         $respone = $this->M_permintaan->update_permintaan_spbe($data);
         $this->response($respone, REST_Controller::HTTP_OK);
+    }
+    public function data_get()
+    {
+        $id = $this->get('id');
+        $data = $this->M_permintaan->one_permintaan_spbe($id);
+        if ($data) {
+            $this->response($data, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+        } else {
+            $this->response([
+                'status' => FALSE,
+                'message' => 'No users were found'
+            ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+        }
     }
 }

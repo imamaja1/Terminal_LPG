@@ -266,73 +266,78 @@
                     dataType: 'json',
                     success: function(response) {
                         id = response.kode_spbe
+                        datatablesgo();
                         limit = response.limit
                         document.getElementById('namaspbe').innerHTML = response.nama_spbe;
+
                     }
                 })
-                $('#datatable').DataTable({
-                    distroy: true,
-                    ajax: {
-                        "method": "GET",
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                            'Authorization': "Basic " + btoa("gas:gas")
+
+                function datatablesgo() {
+                    $('#datatable').DataTable({
+                        distroy: true,
+                        ajax: {
+                            "method": "GET",
+                            url: "<?= base_url() ?>/Rest_API/Permintaan_spbe/data?KEY-SPBE=SPBE&id=" + id,
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded',
+                                'Authorization': "Basic " + btoa("gas:gas")
+                            },
                         },
-                        "url": "<?= base_url() ?>/Rest_API/permintaan?KEY-SPBE=SPBE"
-                    },
-                    columns: [{
-                        data: null
-                    }, {
-                        data: "no_spa"
-                    }, {
-                        data: "tgl_spa"
-                    }, {
-                        data: "stock"
-                    }, {
-                        data: "nopol"
-                    }, {
-                        data: "status_patra_niaga",
-                        className: "center",
-                        render: function(data, type, row, meta) {
-                            if (data == '1') {
-                                return '<span class="label label-default">Waiting ..</span>';
-                            } else if (data == '2') {
-                                return '<span class="label label-info">Diverifikasi</span>'
-                            } else if (data == '3') {
-                                return '<span class="label label-danger">Ditolak</span>'
-                            }
-                        }
-                    }, {
-                        data: null,
-                        className: "center",
-                        render: function(data, type, row, meta) {
-                            if (row['status_patra_niaga'] == 2) {
-                                if (row['status_permintaan'] == 1) {
-                                    return '<span class="label label-default">Skid Tank diperjalanan </span>'
-                                } else {
-                                    return '<span class="label label-info">Skid Tank Telah Sampai</span>'
+                        columns: [{
+                            data: null
+                        }, {
+                            data: "no_spa"
+                        }, {
+                            data: "tgl_spa"
+                        }, {
+                            data: "stock"
+                        }, {
+                            data: "nopol"
+                        }, {
+                            data: "status_patra_niaga",
+                            className: "center",
+                            render: function(data, type, row, meta) {
+                                if (data == '1') {
+                                    return '<span class="label label-default">Waiting ..</span>';
+                                } else if (data == '2') {
+                                    return '<span class="label label-info">Diverifikasi</span>'
+                                } else if (data == '3') {
+                                    return '<span class="label label-danger">Ditolak</span>'
                                 }
-                            } else if (row['status_patra_niaga'] == 1) {
-                                return '<span class="label label-default">Waiting ..</span>';
-                            } else {
-                                return '<span class="label label-danger">Permintaan Ditolak</span>'
                             }
-                        }
-                    }, {
-                        data: null,
-                        className: "center",
-                        render: function(data, type, row, meta) {
-                            if (row['kode_skid_tank'] == 0) {
-                                return '<div class="btn-group"><button class="btn btn-info" data-toggle="modal" data-target="#viewdata" onclick="view_data(' + data + ')" disabled><span class="fa fa-eye"></span></button><button class="btn btn-danger" data-toggle="modal" data-target="#deletedata" onclick="delete_data(' + row['kode_permintaan'] + ')"><span class="fa fa-trash-o"></span></button></div>'
-                            } else {
-                                return '<div class="btn-group"><button class="btn btn-info" data-toggle="modal" data-target="#viewdata" onclick="view_data(' + row['kode_skid_tank'] + ')"><span class="fa fa-eye"></span></button><button class="btn btn-danger" data-toggle="modal" data-target="#deletedata" onclick="delete_data(' + row['kode_permintaan'] + ')" disabled><span class="fa fa-trash-o"></span></button></div>'
+                        }, {
+                            data: null,
+                            className: "center",
+                            render: function(data, type, row, meta) {
+                                if (row['status_patra_niaga'] == 2) {
+                                    if (row['status_permintaan'] == 1) {
+                                        return '<span class="label label-default">Skid Tank diperjalanan </span>'
+                                    } else {
+                                        return '<span class="label label-info">Skid Tank Telah Sampai</span>'
+                                    }
+                                } else if (row['status_patra_niaga'] == 1) {
+                                    return '<span class="label label-default">Waiting ..</span>';
+                                } else {
+                                    return '<span class="label label-danger">Permintaan Ditolak</span>'
+                                }
                             }
-                        }
-                    }, ],
-                    "fnCreatedRow": function(row, data, index) {
-                        $('td', row).eq(0).html(index + 1);
-                    },
-                });
+                        }, {
+                            data: null,
+                            className: "center",
+                            render: function(data, type, row, meta) {
+                                if (row['kode_skid_tank'] == 0) {
+                                    return '<div class="btn-group"><button class="btn btn-info" data-toggle="modal" data-target="#viewdata" onclick="view_data(' + data + ')" disabled><span class="fa fa-eye"></span></button><button class="btn btn-danger" data-toggle="modal" data-target="#deletedata" onclick="delete_data(' + row['kode_permintaan'] + ')"><span class="fa fa-trash-o"></span></button></div>'
+                                } else {
+                                    return '<div class="btn-group"><button class="btn btn-info" data-toggle="modal" data-target="#viewdata" onclick="view_data(' + row['kode_skid_tank'] + ')"><span class="fa fa-eye"></span></button><button class="btn btn-danger" data-toggle="modal" data-target="#deletedata" onclick="delete_data(' + row['kode_permintaan'] + ')" disabled><span class="fa fa-trash-o"></span></button></div>'
+                                }
+                            }
+                        }, ],
+                        "fnCreatedRow": function(row, data, index) {
+                            $('td', row).eq(0).html(index + 1);
+                        },
+                    });
+                }
 
                 function cek() {
                     $.ajax({
