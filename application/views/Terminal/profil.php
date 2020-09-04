@@ -41,7 +41,7 @@
 
                 <div class="col-md-12">
                     <div class="alert alert-info put" style="display: none" role="put">
-                        Pengupdatan Data Telah Berhasil
+                        Pembaruan Data Telah Berhasil
                     </div>
                     <div class="panel panel-colorful">
                         <div class="panel-body">

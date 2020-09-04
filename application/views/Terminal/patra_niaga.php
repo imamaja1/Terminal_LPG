@@ -41,10 +41,10 @@
                     <div class="col-md-12">
 
                         <div class="alert alert-success tambah" style="display: none" role="tambah">
-                            Penambaha Data Telah Berhasil
+                            Penambahan Data Telah Berhasil
                         </div>
                         <div class="alert alert-info put" style="display: none" role="put">
-                            Pengupdatan Data Telah Berhasil
+                            Pembaruan Data Telah Berhasil
                         </div>
                         <div class="alert alert-danger delete" style="display: none" role="delete">
                             Penghapusan Data Telah Berhasil
@@ -89,10 +89,10 @@
                             </div>
                         </div>
                         <div class="alert alert-success tambah2" style="display: none" role="tambah2">
-                            Penambaha Data Telah Berhasil
+                            Penambahan Data Telah Berhasil
                         </div>
                         <div class="alert alert-info put2" style="display: none" role="put2">
-                            Pengupdatan Data Telah Berhasil
+                            Pembaruan Data Telah Berhasil
                         </div>
                         <div class="alert alert-danger delete2" style="display: none" role="delete2">
                             Penghapusan Data Telah Berhasil
@@ -218,7 +218,7 @@
                             </div>
                         </div>
                         <div class="modal-footer" style="background-color: white;">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
                         </div>
                     </div>
                 </div>
@@ -298,8 +298,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="post_data()">Save changes</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+                            <button type="button" class="btn btn-info" data-dismiss="modal" onclick="post_data()">Simpan</button>
                         </div>
                     </div>
                 </div>
@@ -380,8 +380,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="put_data()">Save changes</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+                            <button type="button" class="btn btn-info" data-dismiss="modal" onclick="put_data()">Update</button>
                         </div>
                     </div>
                 </div>

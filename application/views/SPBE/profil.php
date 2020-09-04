@@ -40,7 +40,7 @@
 
                 <div class="col-md-12">
                     <div class="alert alert-info put" style="display: none" role="put">
-                        Pengupdatan Data Telah Berhasil
+                        Pembaruan Data Telah Berhasil
                     </div>
                     <div class="panel panel-colorful">
                         <div class="panel-body">
@@ -50,7 +50,7 @@
                                 <input type="text" class="form-control" id="nama_spbe">
                             </div>
                             <div class="form-group col-md-4">
-                                <label>Telepone SPBE</label>
+                                <label>Telepon SPBE</label>
                                 <input type="" class="form-control" id="telepon_spbe">
                             </div>
                             <div class="form-group col-md-4">
@@ -76,7 +76,7 @@
                             </div>
                         </div>
                         <div class="panel-footer">
-                            <button class="btn btn-primary pull-right" onclick="put()">Submit</button>
+                            <button class="btn btn-info pull-right" onclick="put()">Update</button>
                         </div>
                     </div>
 

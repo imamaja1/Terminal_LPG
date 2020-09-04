@@ -136,7 +136,7 @@
                             </div>
                         </div>
                         <div class="modal-footer" style="background-color: white;">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
                         </div>
                     </div>
                 </div>
@@ -196,8 +196,8 @@
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="post_data()">Save changes</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+                            <button type="button" class="btn btn-info" data-dismiss="modal" onclick="post_data()">Simpan</button>
                         </div>
                     </div>
                 </div>
@@ -254,8 +254,8 @@
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="put_data()">Save changes</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+                            <button type="button" class="btn btn-info" data-dismiss="modal" onclick="put_data()">Update</button>
                         </div>
                     </div>
                 </div>

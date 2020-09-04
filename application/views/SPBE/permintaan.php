@@ -70,7 +70,7 @@
                                             <th>Stock</th>
                                             <th>NOPOL</th>
                                             <th>Status Patra Niaga</th>
-                                            <th>Ket</th>
+                                            <th>Keterangan</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -173,7 +173,7 @@
                             </div>
                         </div>
                         <div class="modal-footer" style="background-color: white;">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
                         </div>
                     </div>
                 </div>
@@ -207,8 +207,8 @@
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="post_data()">Save changes</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+                            <button type="button" class="btn btn-info" data-dismiss="modal" onclick="post_data()">Simpan</button>
                         </div>
                     </div>
                 </div>
@@ -224,8 +224,8 @@
                         <div class="modal-body" style="text-align: center;">
                             <h2 class="modal-title" id="exampleModalLabel"> Yakin Ingin Menghapus ?</h2>
                             <br>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal" style="margin: 0 10% 0 0;">NO</button>
-                            <button type="button" class="btn btn-info" data-dismiss="modal" style="margin: 0 0 0 10%;" onclick="delete_fix()">YES</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" style="margin: 0 10% 0 0;">NO</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal" style="margin: 0 0 0 10%;" onclick="delete_fix()">YES</button>
                         </div>
                     </div>
                 </div>
@@ -327,9 +327,9 @@
                             className: "center",
                             render: function(data, type, row, meta) {
                                 if (row['kode_skid_tank'] == 0) {
-                                    return '<div class="btn-group"><button class="btn btn-info" data-toggle="modal" data-target="#viewdata" onclick="view_data(' + data + ')" disabled><span class="fa fa-eye"></span></button><button class="btn btn-danger" data-toggle="modal" data-target="#deletedata" onclick="delete_data(' + row['kode_permintaan'] + ')"><span class="fa fa-trash-o"></span></button></div>'
+                                    return '<div class="btn-group"><button class="btn btn-success" data-toggle="modal" data-target="#viewdata" onclick="view_data(' + data + ')" disabled><span class="fa fa-eye"></span></button><button class="btn btn-danger" data-toggle="modal" data-target="#deletedata" onclick="delete_data(' + row['kode_permintaan'] + ')"><span class="fa fa-trash-o"></span></button></div>'
                                 } else {
-                                    return '<div class="btn-group"><button class="btn btn-info" data-toggle="modal" data-target="#viewdata" onclick="view_data(' + row['kode_skid_tank'] + ')"><span class="fa fa-eye"></span></button><button class="btn btn-danger" data-toggle="modal" data-target="#deletedata" onclick="delete_data(' + row['kode_permintaan'] + ')" disabled><span class="fa fa-trash-o"></span></button></div>'
+                                    return '<div class="btn-group"><button class="btn btn-success" data-toggle="modal" data-target="#viewdata" onclick="view_data(' + row['kode_skid_tank'] + ')"><span class="fa fa-eye"></span></button><button class="btn btn-danger" data-toggle="modal" data-target="#deletedata" onclick="delete_data(' + row['kode_permintaan'] + ')" disabled><span class="fa fa-trash-o"></span></button></div>'
                                 }
                             }
                         }, ],

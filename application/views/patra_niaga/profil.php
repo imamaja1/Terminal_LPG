@@ -40,10 +40,10 @@
                     <div class="col-md-12">
 
                         <div class="alert alert-success tambah" style="display: none" role="tambah">
-                            Penambaha Data Telah Berhasil
+                            Penambahan Data Telah Berhasil
                         </div>
                         <div class="alert alert-info put" style="display: none" role="put">
-                            Pengupdatan Data Telah Berhasil
+                            Pembaruan Data Telah Berhasil
                         </div>
                         <div class="alert alert-danger delete" style="display: none" role="delete">
                             Penghapusan Data Telah Berhasil
@@ -81,7 +81,7 @@
                                         <input type="password" class="form-control" id="put_password" aria-describedby="emailHelp">
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <button type="submit" class="btn btn-info pull-right" onclick="put_patra_niaga()">Update Data</button>
+                                        <button type="submit" class="btn btn-info pull-right" onclick="put_patra_niaga()">Update</button>
                                     </div>
 
                                 </div>
