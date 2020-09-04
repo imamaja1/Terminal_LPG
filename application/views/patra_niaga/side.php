@@ -103,7 +103,6 @@
             processData: false,
             contentType: false,
             success: function(response) {
-                console.log(response);
                 foto_profil();
             }
         });
@@ -120,7 +119,6 @@
             contentType: "application/json",
             dataType: 'json',
             success: function(response) {
-                console.log(response);
                 document.getElementById('profil_img').innerHTML = ' <img src="<?= base_url() ?>uploads/' + response.data.nama_profil + '" alt="John Doe"  width="100" height="100"/>';
             }
         })

@@ -365,14 +365,10 @@
                                 <div class="col-md-12">
                                     <div class="timeline2">
                                         <div class="line text-muted"></div>
-                                        <!-- <div class="separator text-muted">
-                                    <time>Time Line</time>
-                                </div> -->
                                         <article class="panel panel-info panel-outline"></article>
                                         <div id="datatimeline"></div>
-                                        <!-- /Separator -->
-                                        <div class="separator text-muted"></div>
-                                        <article class="panel panel-info panel-outline"></article>
+                                        <div class="separator text-muted"><time>.</time></div>
+                                        <div class="separator text-muted"><time></time></div>
                                     </div>
                                 </div>
                             </div>
@@ -382,7 +378,8 @@
                         </div>
                     </div>
                 </div>
-            </div <!-- START PRELOADS -->
+            </div>
+            <!-- START PRELOADS -->
             <audio id="audio-alert" src="<?= base_url() ?>assets/audio/alert.mp3" preload="auto"></audio>
             <audio id="audio-fail" src="<?= base_url() ?>assets/audio/fail.mp3" preload="auto"></audio>
             <!-- END PRELOADS -->
@@ -409,31 +406,36 @@
                 var kode_skid_tank;
                 var kode_supir1;
                 var kode_supir2;
+                var x = new Date(new Date().toLocaleString('en-US', {
+                    timeZone: 'Asia/Jakarta'
+                }));
 
-                function kode3(kode, jum) {
-                    console.log(kode);
-                    document.getElementById('datatimeline').innerHTML = null;
+                var times = moment(x.getFullYear() + '-' + (x.getMonth() + 1) + '-' + x.getDate() + ' ' + x.getHours() + ':' + x.getMinutes() + ':' + x.getSeconds());
+
+                function kode3(kode) {
+                    console.log(kode)
                     $.ajax({
                         type: 'GET',
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
                             'Authorization': "Basic " + btoa("gas:gas")
                         },
-                        url: " <?= base_url() ?>Rest_API/Permintaan/skid_tank?KEY-SPBE=SPBE&id=" + kode,
+                        url: " <?= base_url() ?>Rest_API/permintaan/skid_tank?KEY-SPBE=SPBE&id=" + kode,
                         contentType: "application/json",
                         dataType: 'json',
                         success: function(response) {
-                            console.log(response);
-                            if (jum > 1) {
-                                document.getElementById('datatimeline').innerHTML += ' <div class="separator text-muted"><time>' + response.data[0].tgl + '</time></div><article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body"><strong>Pemintaan Skid Tank</strong> dari <strong>SPBE</strong>.</div></article>';
-                                if (jum > 2) {
-                                    document.getElementById('datatimeline').innerHTML += ' <div class="separator text-muted"><time>' + response.data[0].tgl_berangkat_tujuan + '</time></div><article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body"><strong>Verifikasi Perminaan Skid Tank</strong> oleh <strong>Patra Niaga</strong>.</div></article>';
-                                    if (jum > 3) {
-                                        document.getElementById('datatimeline').innerHTML += ' <div class="separator text-muted"><time>' + response.data[0].tgl_berangkat_tujuan + '</time></div><article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body"> Proses <strong>Skid Tank Berangkat</strong>.</div></article>';
-                                        if (jum > 4) {
-                                            document.getElementById('datatimeline').innerHTML += ' <div class="separator text-muted"><time>' + response.data[0].tgl_sampai_tujuan + '</time></div><article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body">  <strong>Skid Tank telah sampai</strong> di tujuan.</div></article>';
-                                            if (jum > 5) {
-                                                document.getElementById('datatimeline').innerHTML += ' <div class="separator text-muted"><time>' + response.data[0].tgl_kembali + '</time></div><article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body">  <strong>Skid Tank Kembali</strong> Ke Pangkalan.</div></article>';
+                            document.getElementById('datatimeline').innerHTML = null;
+                            if (response.data[0].status_permintaan != '2') {
+                                if (response.data[0].status_patra_niaga == '2') {
+                                    if (moment(response.data[0].tgl_berangkat_tujuan) < times) {
+                                        document.getElementById('datatimeline').innerHTML += ' <article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body">' + response.data[0].tgl + '<br><strong>Skid Tank Bersiap <br></strong> menuju <strong>SPBE</strong>.</div></article>';
+                                        if (moment(response.data[0].tgl_berangkat_tujuan) < moment(response.data[0].tgl_sampai_tujuan)) {
+                                            document.getElementById('datatimeline').innerHTML += ' <article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body">' + response.data[0].tgl + '<br><strong>Skid Tank dalam perjalanan <br></strong> menuju <strong>SPBE</strong>.</div></article>';
+                                            if (moment(response.data[0].tgl_sampai_tujuan) < times) {
+                                                document.getElementById('datatimeline').innerHTML += ' <article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body">' + response.data[0].tgl_sampai_tujuan + '<br><strong>Skid Tank</strong> Telah sampai <strong>SPBE</strong>.</div></article>';
+                                                if (moment(response.data[0].tgl_kembali) < times) {
+                                                    document.getElementById('datatimeline').innerHTML += ' <article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body">' + response.data[0].tgl_kembali + '<br><strong>Skid Tank</strong>Perjalan Kembali menuju<strong>Pangkalan</strong>.</div></article>';
+                                                }
                                             }
                                         }
                                     }
@@ -441,7 +443,27 @@
                             }
                         }
                     })
+
+                    // document.getElementById('datatimeline').innerHTML = null;
+                    // if (jum > 1) {
+                    //     document.getElementById('datatimeline').innerHTML += ' <article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body">' + response.data[0].tgl + '<br><strong>Pemintaan Skid Tank</strong> dari <strong>SPBE</strong>.</div></article>';
+                    //     if (jum > 2) {
+                    //         document.getElementById('datatimeline').innerHTML += ' <article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body">' + response.data[0].tgl_berangkat_tujuan + '<br><strong>Verifikasi Perminaan Skid Tank</strong> <br>oleh <strong>Patra Niaga</strong>.</div></article>';
+                    //         if (jum > 3) {
+                    //             document.getElementById('datatimeline').innerHTML += '<article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body">' + response.data[0].tgl_berangkat_tujuan + '<br> Proses <strong>Skid Tank Berangkat</strong>.</div></article>';
+                    //             if (jum > 4) {
+                    //                 document.getElementById('datatimeline').innerHTML += '<article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body">' + response.data[0].tgl_sampai_tujuan + '<br> Proses <strong>Skid Tank Berangkat</strong>.</div></article>'
+                    //                 if (jum > 5) {
+                    //                     document.getElementById('datatimeline').innerHTML += '<article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body">' + response.data[0].tgl_kembali + '<br> Proses <strong>Skid Tank Berangkat</strong>.</div></article>'
+                    //                 }
+                    //             }
+                    //         }
+                    //     }
+                    // }
+                    //     }
+                    // })
                 }
+
                 $.ajax({
                     type: 'GET',
                     url: " <?= base_url() ?>Rest_API/auth?KEY-SPBE=SPBE",
@@ -455,20 +477,14 @@
                         kode_patra_niaga = response.kode_patra_niaga;
                     }
                 });
-
-                var x = new Date(new Date().toLocaleString('en-US', {
-                    timeZone: 'Asia/Jakarta'
-                }));
-
-                var times = moment(x.getFullYear() + '-' + (x.getMonth() + 1) + '-' + x.getDate() + ' ' + x.getHours() + ':' + x.getMinutes() + ':' + x.getSeconds());
                 $('#datatable').DataTable({
                     ajax: {
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
                             'Authorization': "Basic " + btoa("gas:gas")
                         },
-                        "method": "GET",
-                        "url": "<?= base_url() ?>/Rest_api/skid_tank?KEY-SPBE=SPBE",
+                        method: "GET",
+                        url: "<?= base_url() ?>/Rest_api/skid_tank?KEY-SPBE=SPBE",
                     },
                     columns: [{
                         data: null
@@ -495,23 +511,7 @@
                             if (row['status'] == '1') {
                                 return '<span class="label label-info">Ready</span>';
                             } else if (row['status'] == '2') {
-                                if (moment(row['tgl_berangkat_tujuan']) < times) {
-                                    if (moment(row['tgl_sampai_tujuan']) < times) {
-                                        if (moment(row['tgl_kembali']) < times) {
-                                            if (moment(row['tgl_sampai_kembali']) < times) {
-                                                return 'telah selesai';
-                                            } else {
-                                                return '<a href="#" data-toggle="modal" data-target="#timeline" onclick="kode3(' + row['kode_permintaan'] + ',6)"><span class="label label-default">Skid Tank telah Pangakalan</span></a>'
-                                            }
-                                        } else {
-                                            return '<a href="#" data-toggle="modal" data-target="#timeline" onclick="kode3(' + row['kode_permintaan'] + ', 5)" > < span class = "label label-default" > Prose menuju Pangakalan < /span></a > '
-                                        }
-                                    } else {
-                                        return '<a href="#" data-toggle="modal" data-target="#timeline" onclick="kode3(' + row['kode_skid_tank'] + ',4)"><span class="label label-default">Proses Penyaluran Gas</span></a>'
-                                    }
-                                } else {
-                                    return '<a href="#" data-toggle="modal" data-target="#timeline" onclick="kode3(' + row['kode_skid_tank'] + ',4)"><span class="label label-default" >Proses menuju PSBE</span></a>'
-                                }
+                                return '<a href="#" data-toggle="modal" data-target="#timeline" onclick="kode3(' + row['kode_skid_tank'] + ')"><span class="label label-default" >Skid Tank Masih dalam Perjalanan</span></a>'
                             } else if (drow['status'] == '3') {
                                 return '<span class="label label-danger">Tidak Dapat Digunakan</span>'
                             }
@@ -540,7 +540,6 @@
                         },
                         dataType: 'json',
                         success: function(response) {
-                            console.log(response)
                             $("#view_nopol").text(response.data[0].nopol);
                             $("#view_kapasitas").text(response.data[0].kapasitas);
                             $("#view_odometer").text(response.data[0].odometer);
@@ -661,7 +660,6 @@
                         dataType: 'json',
                         data: value_data,
                         success: function(response) {
-                            console.log(response);
                             $(".put").show();
                             $("#datatable").DataTable().ajax.reload();
                         }
@@ -690,7 +688,6 @@
                         dataType: 'json',
                         data: value_data,
                         success: function(response) {
-                            console.log(response);
                             $(".delete").show();
                             $("#datatable").DataTable().ajax.reload();
                         }
