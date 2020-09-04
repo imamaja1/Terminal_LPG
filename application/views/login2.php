@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Login V18</title>
+    <title>Login SPBE</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -64,7 +64,7 @@
                     <div class="text-center p-t-46 p-b-20">
                     </div>
                 </div>
-                <div class="login100-more" style="background-image: url('<?= base_url() ?>assets2/images/004.jpg');">
+                <div class="login100-more" style="background-image: url('<?= base_url() ?>assets2/images/Elpiji.jpg');">
                 </div>
             </div>
         </div>

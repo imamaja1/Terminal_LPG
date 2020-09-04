@@ -19,7 +19,18 @@
         } ?>>
         <a href=" <?= base_url() ?>Terminal"><span class="fa fa-dashboard"></span> <span class="xn-text">Dashboard</span></a>
     </li>
+<<<<<<< HEAD
     <li class="xn-title">DATA</li>
+=======
+
+    <!-- <li class="xn-title">Aktivitas</li>
+    <li <?php if ($side == 'Monitoring') {
+            echo ' class="active" ';
+        } ?>>
+        <a href=" <?= base_url() ?>Terminal/Monitoring"><span class="fa fa-desktop"></span> <span class="xn-text">Monitoring</span></a>
+    </li> -->
+    <li class="xn-title">Data</li>
+>>>>>>> 0ee822c4e9113cc3e0c4515e83a703081d3d5cdf
     <li <?php if ($side == 'spbe') {
             echo ' class="active" ';
         } ?>>

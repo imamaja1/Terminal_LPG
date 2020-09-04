@@ -51,7 +51,7 @@
                                 <input type="text" class="form-control" id="nama_terminal">
                             </div>
                             <div class="form-group col-md-6">
-                                <label>Telepone Terminal</label>
+                                <label>Telepon Terminal</label>
                                 <input type="" class="form-control" id="telepon_terminal">
                             </div>
                             <div class="form-group col-md-12">
@@ -68,7 +68,7 @@
                             </div>
                         </div>
                         <div class="panel-footer">
-                            <button class="btn btn-primary pull-right" onclick="put()">Submit</button>
+                            <button class="btn btn-info pull-right" onclick="put()">Update</button>
                         </div>
                     </div>
 
