@@ -8,6 +8,7 @@ class Permintaan extends REST_Controller
     {
         parent::__construct();
         $this->load->model('M_permintaan');
+        date_default_timezone_set('Asia/Jakarta');
     }
     public function index_get()
     {
@@ -55,7 +56,7 @@ class Permintaan extends REST_Controller
             'no_spa' => $this->post('no_spa'),
             'tgl_spa' => $this->post('tgl_spa'),
             'stock' => $this->post('stock'),
-            'tgl' => date('Y/m/d'),
+            'tgl' => date('Y-m-d H:i:s'),
             'nopol' => $this->post('nopol'),
             'kode_spbe' => $this->post('kode_spbe'),
             'status_terminal' => 1,
