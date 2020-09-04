@@ -6,7 +6,7 @@
     <div class="xn-profile">
         <div class="profile">
             <div class="profile-image">
-                <img src="<?= base_url() ?>assets/assets/images/users/no-image.jpg" alt="John Doe" width="100" height="100" />
+                <div id="profil_img"></div>
             </div>
             <div class="profile-image" style="margin: -20px 0 20px 0 ;">
                 <a type="file" data-toggle="modal" data-target="#Profil"><span class="fa fa-camera" style="background-color: beige; padding:8px; border-radius:50%; border-color:black"></span></a>
@@ -45,7 +45,7 @@
 
 
 
-<div class="modal fade" id="Profil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-sm" id="Profil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
 
@@ -53,30 +53,33 @@
                 <div class="form-group col-md-12 text-center">
                     <div class="profile" style="background-color: white;">
                         <div class="profile-image">
-                            <!-- <img id="blah" src="#" alt="your image" /> -->
                             <div id="images"></div>
                         </div>
                     </div>
                 </div>
                 <div class="form-group col-md-12 text-center" onload="SavePhoto()">
-                    <input type="file" class="form-control" aria-describedby="emailHelp" id="foto" onchange="readURL(this)" multiple>
+                    <form id="myform" enctype="multipart/form-data">
+                        <input type="file" class="form-control" aria-describedby="emailHelp" id="foto" onchange="readURL(this)" multiple>
+                    </form>
                 </div>
 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick="profil()">Save changes</button>
+                <button type="button" class="btn btn-primary" onclick="profil()" data-dismiss="modal">Save changes</button>
             </div>
         </div>
     </div>
 </div>
 
 <script>
-    document.getElementById('images').innerHTML = ' <img src="<?= base_url() ?>assets/assets/images/users/no-image.jpg" alt="John Doe" onchange="SavePhoto()" id="blah"  width="100" height="100"/>';
-
     var data_profil;
+    document.getElementById('images').innerHTML = ' <img src="<?= base_url() ?>assets/assets/images/users/no-image.jpg" alt="John Doe" onchange="SavePhoto()" id="blah"  width="100" height="100"/>';
+    document.getElementById('profil_img').innerHTML = ' <img src="<?= base_url() ?>assets/assets/images/users/no-image.jpg" alt="John Doe"  width="100" height="100"/>';
 
     function readURL(input) {
+
+        //     console.log('profil');
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             reader.onload = function(e) {
@@ -86,13 +89,48 @@
                     .height(100);
             };
             reader.readAsDataURL(input.files[0]);
-            data_profil = input.files;
+            data_profil = input.files[0];
         }
     }
 
     function profil() {
-        var form_data = new FormData();
-        form_data.append('file', data_profil);
-        console.log(form_data)
+        var nama_profil = new FormData();
+        nama_profil.append('file_profil', data_profil);
+        $.ajax({
+            type: 'POST',
+            url: " <?= base_url() ?>Rest_API/Profil/Terminal",
+            headers: {
+                'KEY-SPBE': 'SPBE',
+                'Authorization': "Basic " + btoa("gas:gas")
+            },
+            dataType: 'json',
+            data: nama_profil,
+            enctype: 'multipart/form-data',
+            cache: false,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                console.log(response);
+                foto_profil();
+            }
+        });
     }
+
+    function foto_profil() {
+        $.ajax({
+            type: 'GET',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authorization': "Basic " + btoa("gas:gas")
+            },
+            url: " <?= base_url() ?>Rest_API/Profil/Terminal?KEY-SPBE=SPBE",
+            contentType: "application/json",
+            dataType: 'json',
+            success: function(response) {
+                console.log(response);
+                document.getElementById('profil_img').innerHTML = ' <img src="<?= base_url() ?>uploads/' + response.data.nama_profil + '" alt="John Doe"  width="100" height="100"/>';
+            }
+        })
+    }
+    setTimeout(foto_profil, 100)
 </script>

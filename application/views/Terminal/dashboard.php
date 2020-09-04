@@ -297,7 +297,6 @@
                             timeZone: 'Asia/Jakarta'
                         }));
                         var times = moment(x.getFullYear() + '-' + (x.getMonth() + 1) + '-' + x.getDate() + ' ' + x.getHours() + ':' + x.getMinutes() + ':' + x.getSeconds());
-                        console.log(times)
                         $.each(response.data, function(i) {
                             if (response.data[i].status_permintaan != '2') {
                                 if (response.data[i].status_patra_niaga == '2') {
@@ -346,7 +345,6 @@
         }
 
         function verifikasi() {
-            console.log('put');
             const value_data = {
                 'kode_permintaan': kode_permintaan,
                 'status_terminal': '2',
@@ -385,7 +383,7 @@
                 dataType: 'json',
                 data: value_data,
                 success: function(response) {
-                    console.log(response);
+                    // console.log(response);
                     data_permintaan()
                 }
             });
@@ -408,7 +406,7 @@
                 dataType: 'json',
                 data: value_data,
                 success: function(response) {
-                    console.log(response);
+                    // console.log(response);
                     data_permintaan()
                     // chart()
                 }

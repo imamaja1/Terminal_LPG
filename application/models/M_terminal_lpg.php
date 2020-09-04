@@ -91,4 +91,29 @@ class M_terminal_lpg extends CI_Model
         $respone = $this->db->get("t_terminal_lpg");
         return $respone;
     }
+
+    public function Profil($data)
+    {
+        $this->db->where('id_profil', $data['id_profil']);
+        $update = $this->db->update("profil1", $data);
+        if ($update) {
+            $response['status'] = 200;
+            $response['error'] = false;
+            $response['message'] = 'Data person dipupdate.';
+            return $response;
+        } else {
+            $response['status'] = 502;
+            $response['error'] = true;
+            $response['message'] = 'Data person gagal diupdate.';
+            return $response;
+        }
+    }
+    public function data_profil()
+    {
+        $this->db->where('id_profil', '1');
+        $response['data'] = $this->db->get('profil1')->row();
+        $response['status'] = 200;
+        $response['error'] = false;
+        return $response;
+    }
 }

@@ -123,4 +123,21 @@ class M_spbe extends CI_Model
     $all['nama_spbe'] = $nama_spbe;
     return $all;
   }
+
+  public function Profil($data)
+  {
+    $this->db->where('id_profil', $data['id_profil']);
+    $update = $this->db->update("profil1", $data);
+    if ($update) {
+      $response['status'] = 200;
+      $response['error'] = false;
+      $response['message'] = 'Data person dipupdate.';
+      return $response;
+    } else {
+      $response['status'] = 502;
+      $response['error'] = true;
+      $response['message'] = 'Data person gagal diupdate.';
+      return $response;
+    }
+  }
 }
