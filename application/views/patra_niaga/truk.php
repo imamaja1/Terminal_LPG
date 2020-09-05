@@ -599,7 +599,7 @@
                             success: function(response) {
                                 console.log(response);
                                 $(".tambah").show();
-                                $(".put").hdie();
+                                $(".put").hide();
                                 $(".delete").hide();
                                 $("#datatable").DataTable().ajax.reload();
                                 empty()
@@ -695,7 +695,7 @@
                         success: function(response) {
                             $(".delete").show();
                             $(".tambah").hide();
-                            $(".put").hdie();
+                            $(".put").hide();
                             $("#datatable").DataTable().ajax.reload();
                         }
                     });
