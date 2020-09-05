@@ -190,7 +190,9 @@
                             <h3 class="modal-title" id="exampleModalLabel">Input Permintaan</h3>
                         </div>
                         <div class="modal-body col-md-12">
-
+                            <div class="alert alert-danger validasi" style="display: none;" role="validasi">
+                                Data Skid Tank tidak boleh kosong
+                            </div>
                             <div class="form-group col-md-6">
                                 <label for="exampleInputEmail1">Nomor SPA</label>
                                 <input type="" class="form-control" id="post_no_spa" aria-describedby="emailHelp">
@@ -211,7 +213,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
-                            <button type="button" class="btn btn-info" data-dismiss="modal" onclick="post_data()">Simpan</button>
+                            <button type="button" class="btn btn-info" onclick="post_data()">Simpan</button>
                         </div>
                     </div>
                 </div>
@@ -365,49 +367,57 @@
                         },
                         dataType: 'json',
                         success: function(response) {
+                            console.log(id)
                             console.log(response)
                             if (response.data * 13 > limit) {
                                 $(".limit").show();
                                 $("#post_no_spa").prop('disabled', true);
                                 $("#post_tgl_spa").prop('disabled', true);
                                 $("#post_stock").prop('disabled', true);
-                                $("#post_nopol").prop('disabled', true);
+                            } else {
+                                $("#post_no_spa").prop('disabled', false);
+                                $("#post_tgl_spa").prop('disabled', false);
+                                $("#post_stock").prop('disabled', false);
                             }
                         }
                     });
                 }
-                setTimeout(cek, 100);
+                setTimeout(cek, 400);
 
                 function post_data() {
-                    console.log('post');
-                    const value_data = {
-                        'no_spa': $("#post_no_spa").val(),
-                        'tgl_spa': $("#post_tgl_spa").val(),
-                        'stock': $("#post_stock").val(),
-                        'nopol': $("#post_nopol").val(),
-                        'kode_spbe': id,
-                        'KEY-SPBE': 'SPBE'
-                    }
-                    console.log(value_data);
-                    $.ajax({
-                        type: 'POST',
-                        url: " <?= base_url() ?>Rest_API/permintaan",
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                            'Authorization': "Basic " + btoa("gas:gas")
-                        },
-                        dataType: 'json',
-                        data: value_data,
-                        success: function(response) {
-                            console.log(response);
-                            $(".delete").hide();
-                            $(".tambah").show();
-                            $(".put").hide();
-                            $("#datatable").DataTable().ajax.reload();
-                            empty();
-                            cek()
+                    if ($("#post_no_spa").val() == '' || $("#post_tgl_spa").val() == '' || $("#post_stock").val() == '') {
+                        $('.validasi').show().delay(9000).fadeOut(400);
+                    } else {
+                        console.log('post');
+                        const value_data = {
+                            'no_spa': $("#post_no_spa").val(),
+                            'tgl_spa': $("#post_tgl_spa").val(),
+                            'stock': $("#post_stock").val(),
+                            'nopol': $("#post_nopol").val(),
+                            'kode_spbe': id,
+                            'KEY-SPBE': 'SPBE'
                         }
-                    });
+                        console.log(value_data);
+                        $.ajax({
+                            type: 'POST',
+                            url: " <?= base_url() ?>Rest_API/permintaan",
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded',
+                                'Authorization': "Basic " + btoa("gas:gas")
+                            },
+                            dataType: 'json',
+                            data: value_data,
+                            success: function(response) {
+                                console.log(response);
+                                $(".delete").hide();
+                                $(".tambah").show();
+                                $(".put").hide();
+                                $("#datatable").DataTable().ajax.reload();
+                                empty();
+                                cek()
+                            }
+                        });
+                    }
                 }
 
                 function empty() {
@@ -454,6 +464,7 @@
                 }
 
                 function delete_fix() {
+
                     console.log('delete');
                     const value_data = {
                         'kode_permintaan': kode_permintaan,
@@ -476,8 +487,11 @@
                             $(".tambah").hide();
                             $(".put").hide();
                             $("#datatable").DataTable().ajax.reload();
+                            $('#inputdata').modal('hide')
+                            cek()
                         }
                     });
+
                 }
             </script>
 
