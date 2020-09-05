@@ -3,7 +3,7 @@
     </div>
 </div>
 <ul class="x-navigation">
-    <li class="xn-logo">
+    <li class="xn-logo"> 
         <a href="index.html">
             <h4>
                 <div id="namaspbe"></div>
@@ -28,13 +28,13 @@
         <a href=" <?= base_url() ?>SPBE"><span class="fa fa-dashboard"></span> <span class="xn-text">Dashboard</span></a>
     </li>
     <li class="xn-title">Aktivitas</li>
-    <li <?php if ($side == 'permintaan') {
+    <li <?php if ($side == 'Permintaan') {
             echo ' class="active" ';
         } ?>>
         <a href=" <?= base_url() ?>SPBE/permintaan"><span class="fa fa-square-o"></span> <span class="xn-text">Permintaan</span></a>
     </li>
     <li class="xn-title">Data</li>
-    <li <?php if ($side == 'profil') {
+    <li <?php if ($side == 'Profil') {
             echo ' class="active" ';
         } ?>>
         <a href="<?= base_url() ?>SPBE/profil"><span class="fa fa-user"></span> <span class="xn-text">Profil</span></a>

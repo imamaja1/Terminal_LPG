@@ -20,17 +20,17 @@ class SPBE extends CI_Controller
     }
     public function index()
     {
-        $data['side'] = 'dashboard';
+        $data['side'] = 'Dashboard';
         $this->load->view('SPBE/dashboard', $data);
     }
     public function profil()
-    {
-        $data['side'] = 'profil';
+    { 
+        $data['side'] = 'Profil';
         $this->load->view('SPBE/profil', $data);
     }
     public function permintaan()
     {
-        $data['side'] = 'permintaan';
+        $data['side'] = 'Permintaan';
         $this->load->view('SPBE/permintaan', $data);
     }
     public function log_out()
