@@ -215,10 +215,10 @@ class M_permintaan extends CI_Model
             }
         }
     }
-    public function cek($tgl)
+    public function cek($id, $tgl)
     {
-        $this->db->where('tgl', $tgl);
-        $this->db->where('status_terminal !=', '3');
+        $this->db->where('kode_spbe', $id);
+        $this->db->where('DATE(tgl)', $tgl);
         $this->db->where('status_patra_niaga !=', '3');
         $respone = $this->db->get("permintaan");
         return $respone;

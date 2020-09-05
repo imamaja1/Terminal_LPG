@@ -116,6 +116,7 @@
     <!-- END SCRIPTS -->
     <script type="text/javascript">
         var id;
+        var pengali;
 
         function data_spbe() {
             $.ajax({
@@ -151,6 +152,7 @@
                             $("#jarak").val(response.data[0].jarak);
                             $("#username").val(response.data[0].username);
                             $("#password").val(response.data[0].password);
+                            pengali = response.data[0].limit / response.data[0].dot;
                         }
                     });
                 }
@@ -159,7 +161,7 @@
         data_spbe();
 
         function mychang() {
-            $("#limit").val($("#dot").val() * 3);
+            $("#limit").val($("#dot").val() * pengali);
         }
 
         function put() {

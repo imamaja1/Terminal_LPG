@@ -38,7 +38,10 @@
 
                 <div class="row">
                     <div class="col-md-12">
-
+                        <div class="alert limit" style="background-color: rgb(252, 165, 3, 0.5);display: none" role="limit">
+                            <h3>Limit Permintaan Skid Tank</h3>
+                            penjelasan
+                        </div>
                         <div class="alert alert-success tambah" style="display: none" role="tambah">
                             Penambahan Data Telah Berhasil
                         </div>
@@ -268,9 +271,21 @@
                     success: function(response) {
                         id = response.kode_spbe
                         datatablesgo();
-                        limit = response.limit
-                        document.getElementById('namaspbe').innerHTML = response.nama_spbe;
+                        $.ajax({
+                            type: 'GET',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded',
+                                'Authorization': "Basic " + btoa("gas:gas")
+                            },
+                            url: " <?= base_url() ?>Rest_API/SPBE?KEY-SPBE=SPBE&id=" + id,
+                            contentType: "application/json",
+                            dataType: 'json',
+                            success: function(response) {
+                                limit = response.data[0].limit;
+                                document.getElementById('namaspbe').innerHTML = response.data[0].nama_spbe;
 
+                            }
+                        })
                     }
                 })
 
@@ -343,14 +358,16 @@
                 function cek() {
                     $.ajax({
                         type: 'GET',
-                        url: " <?= base_url() ?>Rest_API/cek_permintaan?KEY-SPBE=SPBE&id" + id,
+                        url: " <?= base_url() ?>Rest_API/cek_permintaan?KEY-SPBE=SPBE&id=" + id,
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
                             'Authorization': "Basic " + btoa("gas:gas")
                         },
                         dataType: 'json',
                         success: function(response) {
+                            console.log(response)
                             if (response.data * 13 > limit) {
+                                $(".limit").show();
                                 $("#post_no_spa").prop('disabled', true);
                                 $("#post_tgl_spa").prop('disabled', true);
                                 $("#post_stock").prop('disabled', true);
@@ -359,6 +376,7 @@
                         }
                     });
                 }
+                setTimeout(cek, 100);
 
                 function post_data() {
                     console.log('post');
@@ -387,6 +405,7 @@
                             $(".put").hide();
                             $("#datatable").DataTable().ajax.reload();
                             empty();
+                            cek()
                         }
                     });
                 }

@@ -8,11 +8,13 @@ class Cek_permintaan extends REST_Controller
     {
         parent::__construct();
         $this->load->model('M_permintaan');
+        date_default_timezone_set('Asia/Jakarta');
     }
     public function index_get()
     {
-        $tgl = date('y/m/d');
-        $responese['data'] = $this->M_permintaan->cek($tgl)->num_rows();
+        $tgl = date('Y-m-d');
+        $id = $this->get('id');
+        $responese['data'] = $this->M_permintaan->cek($id, $tgl)->num_rows();
         $this->response($responese, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
     }
 }
