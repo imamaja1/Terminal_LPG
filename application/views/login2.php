@@ -90,7 +90,7 @@
     <script src="<?= base_url() ?>assets2/vendor/countdowntime/countdowntime.js"></script>
     <!--===============================================================================================-->
     <script src="<?= base_url() ?>assets2/js/main.js"></script>
-    <script type="text/javascript" src="<?= base_url() ?>preload/code.js"></script>
+    <!-- <script type="text/javascript" src="<?= base_url() ?>preload/code.js"></script> -->
     <script>
         function nilai() {
             console.log($("#select").val());
