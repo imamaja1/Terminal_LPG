@@ -82,8 +82,12 @@ class M_skid_tank extends CI_Model
             return $this->empty_response();
         } else {
             $this->db->where("kode_skid_tank", $id);
+            $nopol = $this->db->get("t_skid_tank")->row();
+            $this->db->where("kode_skid_tank", $id);
             $delete = $this->db->delete("t_skid_tank");
             if ($delete) {
+                $this->db->where("nopol", $nopol->nopol);
+                $this->db->delete("t_supir");
                 $response['status'] = 200;
                 $response['error'] = false;
                 $response['message'] = 'Data person dihapus.';

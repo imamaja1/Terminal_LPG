@@ -408,6 +408,7 @@
             <script>
                 var kode_patra_niaga;
                 var kode_skid_tank;
+                var nopol;
                 var kode_supir1;
                 var kode_supir2;
                 var x = new Date(new Date().toLocaleString('en-US', {
@@ -680,15 +681,13 @@
                 }
 
                 function delete_fix() {
-                    console.log('delete');
                     const value_data = {
                         'kode_skid_tank': kode_skid_tank,
                         'KEY-SPBE': 'SPBE'
                     }
-                    console.log(value_data);
                     $.ajax({
                         type: 'DELETE',
-                        url: " <?= base_url() ?>Rest_API/skid_tank",
+                        url: " <?= base_url() ?>Rest_API/Skid_tank",
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
                             'Authorization': "Basic " + btoa("gas:gas")
@@ -697,11 +696,11 @@
                         dataType: 'json',
                         data: value_data,
                         success: function(response) {
+                            // console.log(response)
                             $(".delete").show().delay(9000).fadeOut(400);
                             $(".tambah").hide();
                             $(".put").hide();
                             $("#datatable").DataTable().ajax.reload();
-
                         }
                     });
                 }

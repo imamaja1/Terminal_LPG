@@ -2,7 +2,7 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 require APPPATH . '/libraries/REST_Controller.php';
-class skid_tank extends REST_Controller
+class Skid_tank extends REST_Controller
 {
     function __construct()
     {
@@ -102,5 +102,6 @@ class skid_tank extends REST_Controller
         } else {
             $this->response($respone, REST_Controller::HTTP_BAD_REQUEST);
         }
+        $this->response($respone, REST_Controller::HTTP_OK);
     }
 }

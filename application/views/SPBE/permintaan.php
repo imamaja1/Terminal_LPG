@@ -380,7 +380,6 @@
                         },
                         dataType: 'json',
                         success: function(response) {
-                            console.log(id)
                             console.log(response)
                             if (response.data * 13 > limit) {
                                 $(".limit").show();
@@ -473,7 +472,7 @@
                 }
 
                 function delete_data(id) {
-                    console.log(id);
+                    // console.log(id);
                     kode_permintaan = id;
                 }
 
@@ -484,7 +483,6 @@
                         'kode_permintaan': kode_permintaan,
                         'KEY-SPBE': 'SPBE'
                     }
-                    console.log(value_data);
                     $.ajax({
                         type: 'DELETE',
                         url: " <?= base_url() ?>Rest_API/permintaan",
