@@ -563,8 +563,7 @@
                         dataType: 'json',
                         data: value_data,
                         success: function(response) {
-                            console.log(response.message)
-                            $(".put").show();
+                            $(".put").show().delay(9000).fadeOut(400);
                             view_patra_niaga()
                         }
                     });
@@ -762,7 +761,7 @@
                         success: function(response) {
                             console.log(response);
                             $(".delete2").hide();
-                            $(".put2").show();
+                            $(".put2").show().delay(9000).fadeOut(400);
                             $(".tambah2").hide();
                             $("#datatable").DataTable().ajax.reload();
                         }
@@ -792,7 +791,7 @@
                         data: value_data,
                         success: function(response) {
                             console.log(response);
-                            $(".delete2").show();
+                            $(".delete2").show().delay(9000).fadeOut(400);
                             $(".put2").hide();
                             $(".tambah2").hide();
                             $("#datatable").DataTable().ajax.reload();

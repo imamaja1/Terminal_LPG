@@ -298,7 +298,9 @@
                         data: value_data,
                         success: function(response) {
                             console.log(response.message);
-                            $(".tambah").show();
+                            $(".tambah").show().delay(9000).fadeOut(400);
+                            $(".delete").hide()
+                            $(".put").hide()
                             $("#datatable").DataTable().ajax.reload();
                         }
                     });
@@ -350,7 +352,9 @@
                         data: value_data,
                         success: function(response) {
                             console.log(response.message);
-                            $(".put").show();
+                            $(".put").show().delay(9000).fadeOut(400);
+                            $(".tambah").hide()
+                            $(".delete").hide()
                             $("#datatable").DataTable().ajax.reload();
                         }
                     });
@@ -377,7 +381,9 @@
                         data: value_data,
                         success: function(response) {
                             console.log(response.message);
-                            $(".delete").show();
+                            $(".delete").show().delay(9000).fadeOut(400);
+                            $(".tambah").hide()
+                            $(".put").hide()
                             $("#datatable").DataTable().ajax.reload();
                         }
                     });

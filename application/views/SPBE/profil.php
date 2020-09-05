@@ -192,7 +192,7 @@
                 success: function(response) {
                     console.log(response);
                     data_spbe();
-                    $(".put").show();
+                    $(".put").show().delay(9000).fadeOut(400);
                 }
             });
 

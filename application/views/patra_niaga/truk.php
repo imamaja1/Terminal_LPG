@@ -601,7 +601,7 @@
                             data: value_data,
                             success: function(response) {
                                 console.log(response);
-                                $(".tambah").show();
+                                $(".tambah").show().delay(9000).fadeOut(400);
                                 $(".put").hide();
                                 $(".delete").hide();
                                 $("#datatable").DataTable().ajax.reload();
@@ -697,7 +697,7 @@
                         dataType: 'json',
                         data: value_data,
                         success: function(response) {
-                            $(".delete").show();
+                            $(".delete").show().delay(9000).fadeOut(400);
                             $(".tambah").hide();
                             $(".put").hide();
                             $("#datatable").DataTable().ajax.reload();

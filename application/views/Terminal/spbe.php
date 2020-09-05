@@ -359,7 +359,7 @@
                     if ($("#post_name_spbe").val() == '' || $("#post_telepon_spbe").val() == '' || $("#post_alamat_spbe").val() == '' || $("#post_kapasitas_tt").val() == '' ||
                         $("#post_dot").val() == '' || $("#post_jarak").val() == '' || $("#post_limit").val() == '' || $("#post_username").val() == '' ||
                         $("#post_password").val() == '' || $("#post_kali_dot").val() == '') {
-                        $('.validasi').show()
+                        // $('.validasi').show()
                         $('.validasi').show().delay(9000).fadeOut(400);
                     } else {
                         const value_data = {
@@ -388,7 +388,7 @@
                                 console.log(response);
                                 $(".put").hide();
                                 $(".delete").hide();
-                                $(".tambah").show();
+                                $(".tambah").show().delay(9000).fadeOut(400);
                                 $("#datatable").DataTable().ajax.reload();
                                 empty()
                             }
@@ -475,7 +475,7 @@
                         data: value_data,
                         success: function(response) {
                             console.log(response);
-                            $(".put").show();
+                            $(".put").show().delay(9000).fadeOut(400);
                             $(".delete").hide();
                             $(".tambah").hide();
                             $("#datatable").DataTable().ajax.reload();
@@ -505,7 +505,7 @@
                         data: value_data,
                         success: function(response) {
                             console.log(response.message);
-                            $(".delete").show();
+                            $(".delete").show().delay(9000).fadeOut(400);
                             $(".tambah").hide();
                             $(".put").hide();
                             $("#datatable").DataTable().ajax.reload();

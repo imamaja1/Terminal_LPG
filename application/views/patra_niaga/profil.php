@@ -452,7 +452,7 @@
                         data: value_data,
                         success: function(response) {
                             console.log(response.message);
-                            $(".put").show();
+                            $(".put").show().delay(9000).fadeOut(400);
                         }
                     });
                 }

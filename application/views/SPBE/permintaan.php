@@ -351,7 +351,7 @@
                             data: null,
                             className: "center",
                             render: function(data, type, row, meta) {
-                                if (row['kode_skid_tank'] == 0) {
+                                if (row['kode_skid_tank'] == null) {
                                     return '<div class="btn-group"><button class="btn btn-success" data-toggle="modal" data-target="#viewdata" onclick="view_data(' + data + ')" disabled><span class="fa fa-eye"></span></button><button class="btn btn-danger" data-toggle="modal" data-target="#deletedata" onclick="delete_data(' + row['kode_permintaan'] + ')"><span class="fa fa-trash-o"></span></button></div>'
                                 } else {
                                     return '<div class="btn-group"><button class="btn btn-success" data-toggle="modal" data-target="#viewdata" onclick="view_data(' + row['kode_skid_tank'] + ')"><span class="fa fa-eye"></span></button><button class="btn btn-danger" data-toggle="modal" data-target="#deletedata" onclick="delete_data(' + row['kode_permintaan'] + ')" disabled><span class="fa fa-trash-o"></span></button></div>'
@@ -417,8 +417,9 @@
                             success: function(response) {
                                 console.log(response);
                                 $(".delete").hide();
-                                $(".tambah").show();
+                                $(".tambah").show().delay(9000).fadeOut(400);
                                 $(".put").hide();
+                                $('#inputdata').modal('hide');
                                 $("#datatable").DataTable().ajax.reload();
                                 empty();
                                 cek()
@@ -490,7 +491,7 @@
                         data: value_data,
                         success: function(response) {
                             console.log(response);
-                            $(".delete").show();
+                            $(".delete").show().delay(9000).fadeOut(400);
                             $(".tambah").hide();
                             $(".put").hide();
                             $("#datatable").DataTable().ajax.reload();
