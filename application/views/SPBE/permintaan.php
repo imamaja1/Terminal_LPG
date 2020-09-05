@@ -239,6 +239,8 @@
             <!-- START PRELOADS -->
             <audio id="audio-alert" src="<?= base_url() ?>assets/audio/alert.mp3" preload="auto"></audio>
             <audio id="audio-fail" src="<?= base_url() ?>assets/audio/fail.mp3" preload="auto"></audio>
+
+            <script type="text/javascript" src="<?= base_url() ?>assets/js/plugins/moment.min.js"></script>
             <!-- END PRELOADS -->
             <!-- START SCRIPTS -->
             <!-- START PLUGINS -->
@@ -337,9 +339,11 @@
                             render: function(data, type, row, meta) {
                                 if (row['status_patra_niaga'] == 2) {
                                     if (row['status_permintaan'] == 1) {
-                                        return '<span class="label label-default">Skid Tank diperjalanan </span>'
-                                    } else {
-                                        return '<span class="label label-info">Skid Tank Telah Sampai</span>'
+                                        if (moment(row['tgl_berangkat_tujuan']) < moment(row['tgl_sampai_tujuan'])) {
+                                            return '<span class="label label-info">Skid Tank Telah Sampai</span>'
+                                        } else {
+                                            return '<span class="label label-default">Skid Tank diperjalanan </span>'
+                                        }
                                     }
                                 } else if (row['status_patra_niaga'] == 1) {
                                     return '<span class="label label-default">Waiting ..</span>';
