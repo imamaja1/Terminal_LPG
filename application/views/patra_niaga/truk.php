@@ -599,6 +599,8 @@
                             success: function(response) {
                                 console.log(response);
                                 $(".tambah").show();
+                                $(".put").hdie();
+                                $(".delete").hide();
                                 $("#datatable").DataTable().ajax.reload();
                                 empty()
                             }
@@ -662,6 +664,8 @@
                         data: value_data,
                         success: function(response) {
                             $(".put").show();
+                            $(".tambah").hide();
+                            $(".delete").hide();
                             $("#datatable").DataTable().ajax.reload();
                         }
                     });
@@ -690,6 +694,8 @@
                         data: value_data,
                         success: function(response) {
                             $(".delete").show();
+                            $(".tambah").hide();
+                            $(".put").hdie();
                             $("#datatable").DataTable().ajax.reload();
                         }
                     });
