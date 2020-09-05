@@ -311,7 +311,14 @@
                         }, {
                             data: "stock"
                         }, {
-                            data: "nopol"
+                            data: null,
+                            render: function(data, type, row, meta) {
+                                if (row['kode_skid_tank'] == null) {
+                                    return 'Patra Niaga'
+                                } else {
+                                    return row['nopol']
+                                }
+                            }
                         }, {
                             data: "status_patra_niaga",
                             className: "center",

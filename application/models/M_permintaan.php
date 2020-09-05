@@ -77,8 +77,11 @@ class M_permintaan extends CI_Model
     }
     public function one_permintaan_spbe($id)
     {
-        $this->db->where('kode_spbe', $id);
-        $all = $this->db->get("permintaan")->result();
+        $all = $this->db->select('*')
+            ->from('permintaan')
+            ->join("t_skid_tank", "t_skid_tank.kode_skid_tank = permintaan.kode_skid_tank", 'left')
+            ->where('kode_spbe', $id)
+            ->get()->result();
         $response['status'] = 200;
         $response['error'] = false;
         $response['data'] = $all;
