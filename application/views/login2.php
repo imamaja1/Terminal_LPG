@@ -37,6 +37,7 @@
                     <span class="login100-form-title p-b-43">
                         SPBE
                     </span>
+                    <div id='alert'></div>
                     <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
                         <input class="input100" type="text" id="username">
                         <span class="focus-input100"></span>
@@ -127,7 +128,8 @@
                         location.reload();
                         console.log('benar')
                     } else {
-                        console.log('salah');
+                        document.getElementById('alert').innerHTML = '<div class="alert alert-danger" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="alert-heading">FAIL</h4><hr><p>Tolong priksa kembali <strong>Username</strong> dan <strong>password</strong> anda.</p></div>';
+                        $('#alert').delay(5000).fadeOut(400);
                     }
 
                 }
