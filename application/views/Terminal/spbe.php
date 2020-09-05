@@ -339,6 +339,19 @@
                     $("#put_limit").val($("#put_dot").val() * $("#put_kali_dot").val());
                 }
 
+                function empty() {
+                    $("#post_name_spbe").val('')
+                    $("#post_telepon_spbe").val('')
+                    $("#post_alamat_spbe").val('')
+                    $("#post_kapasitas_tt").val('')
+                    $("#post_dot").val('')
+                    $("#post_jarak").val('')
+                    $("#post_limit").val('')
+                    $("#post_username").val('')
+                    $("#post_password").val('')
+                    $("#post_kali_dot").val('')
+                }
+
                 function post_data() {
                     console.log('post');
                     const value_data = {
@@ -369,6 +382,7 @@
                             $(".delete").hide();
                             $(".tambah").show();
                             $("#datatable").DataTable().ajax.reload();
+                            empty()
                         }
                     });
                 }

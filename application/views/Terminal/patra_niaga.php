@@ -711,6 +711,7 @@
                                 $(".put2").hide();
                                 $(".tambah2").show();
                                 $("#datatable").DataTable().ajax.reload();
+                                empty()
                             }
                         });
                     } else {
@@ -793,6 +794,24 @@
                             $("#datatable").DataTable().ajax.reload();
                         }
                     });
+                }
+
+                function empty() {
+                    $("#post_nopol").val('')
+                    $("#post_kapasitas").val('')
+                    $("#post_odometer").val('')
+                    // supir 1
+                    $("#post_nama_supir1").val('')
+                    $("#post_tgl_lahir1").val('')
+                    $("#post_no_hp1").val('')
+                    $("#post_no_sim1").val('')
+                    $("#post_tgl_berlaku1").val('')
+                    // supir 2
+                    $("#post_nama_supir2").val('')
+                    $("#post_tgl_lahir2").val('')
+                    $("#post_no_hp2").val('')
+                    $("#post_no_sim2").val('')
+                    $("#post_tgl_berlaku2").val('')
                 }
             </script>
 
