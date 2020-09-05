@@ -157,7 +157,6 @@
                 contentType: "application/json",
                 dataType: 'json',
                 success: function(response) {
-                    // document.getElementById('namatimeline').innerHTML = response.data[0].nama_spbe;
                     if (jum > 1) {
                         document.getElementById('datatimeline').innerHTML += ' <article class="panel panel-info panel-outline"><div class="panel-heading icon"><i class="glyphicon glyphicon-info-sign"></i></div><div class="panel-body">' + response.data[0].tgl + '<br><strong>Pemintaan Skid Tank</strong> dari <strong>SPBE</strong>.</div></article>';
                         if (jum > 2) {
@@ -280,8 +279,8 @@
                 dataType: 'json',
                 data: value_data,
                 success: function(response) {
-                    data_permintaan();
-                    data_permintaan2();
+                    data_permintaan(id);
+                    data_permintaan2(id);
                 }
             });
         }
