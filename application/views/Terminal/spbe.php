@@ -145,61 +145,64 @@
             <!-- Input Data-->
             <div class="modal fade" id="inputdata" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h3 class="modal-title" id="exampleModalLabel">Input Data SPBE</h3>
+                    <form>
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title" id="exampleModalLabel">Input Data SPBE</h3>
+                            </div>
+                            <div class="modal-body col-md-12">
+                                <div class="alert alert-danger validasi" style="display: none;" role="validasi">
+                                    Data SPBE tidak boleh kosong
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="exampleInputEmail1">Nama SPBE</label>
+                                    <input type="" class="form-control" id="post_name_spbe" aria-describedby="emailHelp" required>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="exampleInputEmail1">No Telepon</label>
+                                    <input type="" class="form-control" id="post_telepon_spbe" aria-describedby="emailHelp" required>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="exampleInputEmail1">Kapasitas TT</label>
+                                    <input type="" class="form-control" id="post_kapasitas_tt" aria-describedby="emailHelp" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="exampleInputEmail1">Jarak SPBE</label>
+                                    <input type="" class="form-control" id="post_jarak" aria-describedby="emailHelp" required>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="exampleInputEmail1">Alamat SPBE</label>
+                                    <textarea class="form-control" id="post_alamat_spbe"></textarea>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="exampleInputEmail1">DOT</label>
+                                    <input type="" class="form-control" onchange="myFunction()" id="post_dot" aria-describedby="emailHelp" required>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="exampleInputEmail1">Kali DOT</label>
+                                    <input type="" class="form-control" onchange="myFunction()" id="post_kali_dot" aria-describedby="emailHelp" required>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="exampleInputEmail1">Limit</label>
+                                    <input type="" class="form-control" id="post_limit" aria-describedby="emailHelp" disabled>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="exampleInputEmail1">Username</label>
+                                    <input type="" class="form-control" id="post_username" aria-describedby="emailHelp" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="exampleInputEmail1">Password</label>
+                                    <input type="password" class="form-control" id="post_password" aria-describedby="emailHelp" required>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+                                <button type="button" class="btn btn-info" onclick="post_data()">Simpan</button>
+                            </div>
                         </div>
-                        <div class="modal-body col-md-12">
-
-                            <div class="form-group col-md-6">
-                                <label for="exampleInputEmail1">Nama SPBE</label>
-                                <input type="" class="form-control" id="post_name_spbe" aria-describedby="emailHelp">
-                            </div>
-
-                            <div class="form-group col-md-6">
-                                <label for="exampleInputEmail1">No Telepon</label>
-                                <input type="" class="form-control" id="post_telepon_spbe" aria-describedby="emailHelp">
-                            </div>
-
-                            <div class="form-group col-md-6">
-                                <label for="exampleInputEmail1">Kapasitas TT</label>
-                                <input type="" class="form-control" id="post_kapasitas_tt" aria-describedby="emailHelp">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="exampleInputEmail1">Jarak SPBE</label>
-                                <input type="" class="form-control" id="post_jarak" aria-describedby="emailHelp">
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label for="exampleInputEmail1">Alamat SPBE</label>
-                                <textarea class="form-control" id="post_alamat_spbe"></textarea>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="exampleInputEmail1">DOT</label>
-                                <input type="" class="form-control" onchange="myFunction()" id="post_dot" aria-describedby="emailHelp">
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="exampleInputEmail1">Kali DOT</label>
-                                <input type="" class="form-control" onchange="myFunction()" id="post_kali_dot" aria-describedby="emailHelp">
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="exampleInputEmail1">Limit</label>
-                                <input type="" class="form-control" id="post_limit" aria-describedby="emailHelp" disabled>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="exampleInputEmail1">Username</label>
-                                <input type="" class="form-control" id="post_username" aria-describedby="emailHelp">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="exampleInputEmail1">Password</label>
-                                <input type="password" class="form-control" id="post_password" aria-describedby="emailHelp">
-                            </div>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
-                            <button type="button" class="btn btn-info" data-dismiss="modal" onclick="post_data()">Simpan</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
             <!-- END -->
@@ -353,38 +356,44 @@
                 }
 
                 function post_data() {
-                    console.log('post');
-                    const value_data = {
-                        'nama_spbe': $("#post_name_spbe").val(),
-                        'telepon_spbe': $("#post_telepon_spbe").val(),
-                        'alamat_spbe': $("#post_alamat_spbe").val(),
-                        'kapasitas_tt': $("#post_kapasitas_tt").val(),
-                        'dot': $("#post_dot").val(),
-                        'jarak': $("#post_jarak").val(),
-                        'limit': $("#post_limit").val(),
-                        'username': $("#post_username").val(),
-                        'password': $("#post_password").val(),
-                        'KEY-SPBE': 'SPBE'
-                    }
-                    console.log(value_data);
-                    $.ajax({
-                        type: 'POST',
-                        url: " <?= base_url() ?>Rest_API/SPBE",
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                            'Authorization': "Basic " + btoa("gas:gas")
-                        },
-                        dataType: 'json',
-                        data: value_data,
-                        success: function(response) {
-                            console.log(response);
-                            $(".put").hide();
-                            $(".delete").hide();
-                            $(".tambah").show();
-                            $("#datatable").DataTable().ajax.reload();
-                            empty()
+                    if ($("#post_name_spbe").val() == '' || $("#post_telepon_spbe").val() == '' || $("#post_alamat_spbe").val() == '' || $("#post_kapasitas_tt").val() == '' ||
+                        $("#post_dot").val() == '' || $("#post_jarak").val() == '' || $("#post_limit").val() == '' || $("#post_username").val() == '' ||
+                        $("#post_password").val() == '' || $("#post_kali_dot").val() == '') {
+                        $('.validasi').show()
+                        $('.validasi').show().delay(9000).fadeOut(400);
+                    } else {
+                        const value_data = {
+                            'nama_spbe': $("#post_name_spbe").val(),
+                            'telepon_spbe': $("#post_telepon_spbe").val(),
+                            'alamat_spbe': $("#post_alamat_spbe").val(),
+                            'kapasitas_tt': $("#post_kapasitas_tt").val(),
+                            'dot': $("#post_dot").val(),
+                            'jarak': $("#post_jarak").val(),
+                            'limit': $("#post_limit").val(),
+                            'username': $("#post_username").val(),
+                            'password': $("#post_password").val(),
+                            'KEY-SPBE': 'SPBE'
                         }
-                    });
+                        $.ajax({
+                            type: 'POST',
+                            url: " <?= base_url() ?>Rest_API/SPBE",
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded',
+                                'Authorization': "Basic " + btoa("gas:gas")
+                            },
+                            dataType: 'json',
+                            data: value_data,
+                            success: function(response) {
+                                $('#inputdata').modal('hide')
+                                console.log(response);
+                                $(".put").hide();
+                                $(".delete").hide();
+                                $(".tambah").show();
+                                $("#datatable").DataTable().ajax.reload();
+                                empty()
+                            }
+                        });
+                    }
                 }
 
                 function view_data(id) {
