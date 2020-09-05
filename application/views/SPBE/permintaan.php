@@ -344,6 +344,8 @@
                                         } else {
                                             return '<span class="label label-default">Skid Tank diperjalanan </span>'
                                         }
+                                    } else {
+                                        return '<span class="label label-info">Skid Tank Telah Sampai</span>'
                                     }
                                 } else if (row['status_patra_niaga'] == 1) {
                                     return '<span class="label label-default">Waiting ..</span>';
