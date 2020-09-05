@@ -667,7 +667,7 @@
                         dataType: 'json',
                         data: value_data,
                         success: function(response) {
-                            $(".put").show();
+                            $(".put").show().delay(9000).fadeOut(400);
                             $(".tambah").hide();
                             $(".delete").hide();
                             $("#datatable").DataTable().ajax.reload();
