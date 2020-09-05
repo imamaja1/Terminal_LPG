@@ -232,6 +232,9 @@
                             <h3 class="modal-title" id="exampleModalLabel">Input Data Skid Tank</h3>
                         </div>
                         <div class="modal-body row">
+                            <div class="alert alert-danger validasi" style="display: none;" role="validasi">
+                                Data Skid Tank tidak boleh kosong
+                            </div>
                             <div class="form-group col-md-4">
                                 <label for="exampleInputEmail1">NOPOL</label>
                                 <input type="" class="form-control" id="post_nopol" aria-describedby="emailHelp">
@@ -299,7 +302,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
-                            <button type="button" class="btn btn-info" data-dismiss="modal" onclick="post_data()">Simpan</button>
+                            <button type="button" class="btn btn-info" onclick="post_data()">Simpan</button>
                         </div>
                     </div>
                 </div>
@@ -711,11 +714,12 @@
                                 $(".put2").hide();
                                 $(".tambah2").show();
                                 $("#datatable").DataTable().ajax.reload();
+                                $('#inputdata').modal('hide')
                                 empty()
                             }
                         });
                     } else {
-                        console.log('data ada yang kosong');
+                        $('.validasi').show().delay(9000).fadeOut(400);
                     }
                 }
 
