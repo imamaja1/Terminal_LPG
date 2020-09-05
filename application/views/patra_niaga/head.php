@@ -11,6 +11,34 @@
     <link rel="stylesheet" type="text/css" id="theme" href="<?= base_url() ?>assets/css/theme-default.css" />
     <!-- EOF CSS INCLUDE -->
     <style>
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #FFF;
+            /* change if the mask should have another color then white */
+            z-index: 99999;
+            /* makes sure it stays on top */
+        }
+
+        #status {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 43%;
+            /* centers the loading animation horizontally one the screen */
+            top: 30%;
+            /* centers the loading animation vertically one the screen */
+            background-image: url("<?= base_url() ?>uploads/preloading/Curve-Loading.gif");
+            z-index: 9999;
+            /* path to your loading animation */
+            background-repeat: repeat;
+            background-position: center;
+            /* is width and height divided by two */
+        }
+
         .timeline2 {
             position: relative;
             padding: 21px 0px 10px;

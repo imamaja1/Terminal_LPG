@@ -247,7 +247,7 @@
                                 <label for="exampleInputEmail1">Tanggal Berlaku</label>
                                 <input type="date" class="form-control" id="post_tgl_berlaku2" aria-describedby="emailHelp">
                             </div>
-                        </div> 
+                        </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
                             <button type="button" class="btn btn-info" data-dismiss="modal" onclick="post_data()">Simpan</button>
@@ -399,6 +399,7 @@
             <script type="text/javascript" src="<?= base_url() ?>assets/js/actions.js"></script>
 
             <script type="text/javascript" src="<?= base_url() ?>assets/js/plugins/moment.min.js"></script>
+            <script type="text/javascript" src="<?= base_url() ?>preload/code.js"></script>
             <!-- END TEMPLATE -->
             <!-- END SCRIPTS -->
             <script>

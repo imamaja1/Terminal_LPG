@@ -44,7 +44,7 @@
                             <div class="panel-title-box">
                                 <h3>Skid Tank</h3>
                                 <span>Progres Skid Tank</span>
-                            </div> 
+                            </div>
                         </div>
                         <div class="panel-body">
                             <div class="row stacked">
@@ -210,6 +210,7 @@
     <script type="text/javascript" src="<?= base_url() ?>assets/js/actions.js"></script>
     <script type="text/javascript" src="<?= base_url() ?>assets/js/plugins/morris/raphael-min.js"></script>
     <script type="text/javascript" src="<?= base_url() ?>assets/js/plugins/morris/morris.min.js"></script>
+    <script type="text/javascript" src="<?= base_url() ?>preload/code.js"></script>
     <!-- END TEMPLATE -->
     <!-- END SCRIPTS -->
     <script type="text/javascript">

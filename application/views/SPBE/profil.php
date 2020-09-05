@@ -111,6 +111,7 @@
     <!-- START TEMPLATE -->
     <script type="text/javascript" src="<?= base_url() ?>assets/js/plugins.js"></script>
     <script type="text/javascript" src="<?= base_url() ?>assets/js/actions.js"></script>
+    <script type="text/javascript" src="<?= base_url() ?>preload/code.js"></script>
     <!-- END TEMPLATE -->
     <!-- END SCRIPTS -->
     <script type="text/javascript">

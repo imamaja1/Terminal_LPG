@@ -1,3 +1,7 @@
+<div id="preloader">
+    <div id="status">
+    </div>
+</div>
 <ul class="x-navigation">
     <li class="xn-logo">
         <a href="index.html">
