@@ -386,8 +386,15 @@
                             $(".tambah").show();
                             $(".put").hide();
                             $("#datatable").DataTable().ajax.reload();
+                            empty();
                         }
                     });
+                }
+
+                function empty() {
+                    $("#post_no_spa").val('');
+                    $("#post_tgl_spa").val('');
+                    $("#post_stock").val('');
                 }
 
                 function view_data(id) {
