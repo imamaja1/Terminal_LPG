@@ -180,7 +180,6 @@
                 dataType: 'json',
                 data: value_data,
                 success: function(response) {
-                    console.log(response);
                     $(".put").show().delay(9000).fadeOut(400);
                     $.ajax({
                         type: 'GET',

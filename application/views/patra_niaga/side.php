@@ -75,7 +75,6 @@
     document.getElementById('profil_img').innerHTML = ' <img src="<?= base_url() ?>assets/assets/images/users/no-image.jpg" alt="John Doe"  width="100" height="100"/>';
 
     function readURL(input) {
-
         //     console.log('profil');
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -107,6 +106,7 @@
             processData: false,
             contentType: false,
             success: function(response) {
+                console.log(response)
                 foto_profil();
             }
         });

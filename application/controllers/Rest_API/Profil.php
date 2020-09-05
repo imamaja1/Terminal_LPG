@@ -54,7 +54,7 @@ class Profil extends REST_Controller
             if ($this->upload->do_upload('file_profil')) {
                 $data = array(
                     'nama_profil' => $this->upload->data('file_name'),
-                    'kode_profil' => '2'
+                    'id_profil' => '2'
                 );
                 $respone = $this->M_patra_niaga->profil($data);
             }
