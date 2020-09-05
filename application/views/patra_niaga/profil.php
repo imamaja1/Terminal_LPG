@@ -363,16 +363,9 @@
             </div>
             <!-- END -->
 
-
-
-
-
-
-
             <!-- START PRELOADS -->
             <audio id="audio-alert" src="<?= base_url() ?>assets/audio/alert.mp3" preload="auto"></audio>
             <audio id="audio-fail" src="<?= base_url() ?>assets/audio/fail.mp3" preload="auto"></audio>
-            <script type="text/javascript" src="<?= base_url() ?>preload/code.js"></script>
             <!-- END PRELOADS -->
             <!-- START SCRIPTS -->
             <!-- START PLUGINS -->
@@ -388,6 +381,7 @@
             <!-- START TEMPLATE -->
             <script type="text/javascript" src="<?= base_url() ?>assets/js/plugins.js"></script>
             <script type="text/javascript" src="<?= base_url() ?>assets/js/actions.js"></script>
+            <script type="text/javascript" src="<?= base_url() ?>preload/code.js"></script>
             <!-- END TEMPLATE -->
             <!-- END SCRIPTS -->
             <script>
