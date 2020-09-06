@@ -711,7 +711,7 @@
                                 console.log(response);
                                 $(".delete2").hide();
                                 $(".put2").hide();
-                                $(".tambah2").show();
+                                $(".tambah2").show().delay(9000).fadeOut(400);
                                 $("#datatable").DataTable().ajax.reload();
                                 $('#inputdata').modal('hide')
                                 empty()
