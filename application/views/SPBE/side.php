@@ -67,8 +67,8 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick="profil()" data-dismiss="modal">Save changes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+                <button type="button" class="btn btn-info" onclick="profil()" data-dismiss="modal">Simpan</button>
             </div>
         </div>
     </div>
